@@ -1,0 +1,57 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>事件作出反应</title>
+    <script>
+        function change(e) {
+                document.writeln("Yes");
+                document.writeln("No");
+        }
+        function check() {
+            //if (navigator.cookieEnabled) {
+            //    alert("cookie 可用");
+            //} else {
+            //    alert("cookie 不可用")
+            //}
+        }
+        function fun() {
+            var x = document.getElementById("name");
+            x.value = x.value.toUpperCase();
+        }
+        function over(e) {
+            e.innerHTML = "Mouse In";
+        }
+        function out(e) {
+            e.innerHTML = "Mouse Out";
+        }
+
+    </script>
+</head>
+<body onload="check()">
+    <p id="p1">I'm a p1</p>
+    <p id="p2">I'm a p2</p>
+    <p id="p3">I'm a p3</p>
+    <script>
+        var p = document.getElementsByTagName("p");
+        document.writeln(p[0].firstChild.nodeValue + "</br>");
+        document.writeln(p[1].firstChild.nodeValue + "</br>");
+        document.writeln(p[2].innerText + "</br>");
+        document.writeln(p[0].childNodes[0].nodeValue + "</br>");
+    </script>
+
+    <h1 id="hid" onclick="change(this)">hello world!</h1>
+    <input type="text" id="name" onchange="fun()" />
+    <div onmouseover="over(this)" onmouseout="out(this)" style="background-color:red;width:100px;height:100px;padding:50px;">Mouse Over Me</div>
+
+    <script>
+        document.getElementById("p1").innerHTML = "html";
+        document.writeln(navigator.appCodeName+"</br>");
+        document.writeln(navigator.appName + "</br>");
+        document.writeln(navigator.appVersion + "</br>");
+        document.writeln(navigator.platform + "</br>");
+        document.writeln(navigator.userAgent + "</br>");
+    </script>
+</body>
+</html>

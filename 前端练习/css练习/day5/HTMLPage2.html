@@ -1,0 +1,75 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>CSS content 属性</title>
+    <style>
+        a:after{
+            content:"("attr(href)")";
+        }
+        .select{
+            border:1px solid #e3e3e3;
+            border-radius:7px;
+            width:240px;
+            height:40px;
+            position:relative;
+            display:block;
+        }
+        select{
+            border:0;
+            width:240px;
+            height:40px;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            outline:none;/*边框的轮廓*/
+            background-color:#ececec;
+            font-size:16px;
+        }
+        .select:after{
+            content:"▼";
+            position:absolute;
+            top:0;
+            left:210px;
+            padding:10px 0;
+            width: 10%;
+            height: 100%;  
+            pointer-events:none;
+        }
+        .d{
+            position:relative;
+            background-color:aquamarine;
+            width:240px;
+            height:40px;
+            display:block;
+            -webkit-appearance: none;
+        }
+        .d:after{
+            content:"czh";
+            position:absolute;
+            top:0;
+            left:210px;
+        }
+        
+        
+    </style>
+</head>
+<body>
+    <p><a href="http://www.runoob.com">菜鸟教程</a> - 免费的编程学习网站。</p>
+    <p><b>注意:</b>仅当 !DOCTYPE已经定义 IE8支持 content属性</p>
+    <div class="select">
+        <select name="select">
+            <option>select</option>
+            <option>option</option>
+            <option>option</option>
+            <option>option</option>
+            <option>option</option>
+            <option>option</option>
+            <option>option</option>
+        </select>
+    </div>
+    <div class="d">
+        <p>ssss</p>
+    </div>
+</body>
+</html>

@@ -1,0 +1,53 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>CSS Position(定位)-position:fixed;</title>
+    <style>
+        .static{
+            border:1px solid red;
+            position:static;
+        }
+        .pos_fixed{
+            position:fixed;
+            bottom:30px;
+            right:5px;
+            height:200px;
+        }
+        .pos_fixed a{
+            line-height:40px;
+        }
+        button{
+            border:0px;
+        }
+        button:hover{
+            background-color:aquamarine;
+        }
+        a{
+            text-decoration:none;
+        }
+        a:hover{
+            color:green;
+        }
+    </style>
+</head>
+<body>
+    <h2 id="a">position: static;</h2>
+
+    <p>使用 position: static; 定位的元素，无特殊定位，遵循正常的文档流对象:</p>
+
+    <div class="static">
+        该元素使用了 position: static
+
+    </div>
+    <hr />
+    <div class="pos_fixed">
+        <button><a href="#a">返回顶部</a></button><p style="visibility:hidden;margin:0px 0px;"></p>
+        <button><a href="#d">关注我们</a></button><p style="visibility:hidden;margin:0px 0px;"></p>
+        <button><a href="#">点击收藏</a></button>
+    </div>
+    <p><b>注意:</b> IE7 和 IE8 支持只有一个 !DOCTYPE 指定固定值.</p>
+    <p>Some text</p><p>Some text</p><p>Some text</p><p>Some text</p><a name="d">hhhh</a><p>Some text</p><p>Some text</p><p>Some text</p><p>Some text</p><p>Some text</p><p>Some text</p><p>Some text</p><p>Some text</p><p>Some text</p><p>Some text</p><p>Some text</p><p>Some text</p>
+</body>
+</html>

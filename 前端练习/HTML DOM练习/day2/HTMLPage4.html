@@ -1,0 +1,35 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <script>
+        function fun() {
+            var x = document.getElementById("myframe");
+            //x.contentDocument.body.style.backgroundColor = "red";
+            //x.frameBorder = "0";
+            //x.width = 500;
+            //x.height = 500;
+            //x.scrolling = "no";
+            x.src = "http://www.baidu.com";
+        }
+    </script>
+</head>
+<body>
+    <p>
+    这里是一些文本。这里是一些文本。这里是一些文本。
+    </p>
+    <iframe id="myframe" scrolling="auto" src="http://localhost:50027/HTMLPage1.html" width="200" height="200" frameborder="1" longdesc="a.txt" marginheight="50" marginwidth="50"></iframe>
+    <button onclick="fun()">换颜色</button>
+    <p>ss
+        <script>
+            var f = document.getElementById("myframe");
+            document.writeln(f.longDesc + "<br/>");
+            document.writeln(f.marginHeight + "<br/>");
+            document.writeln(f.marginWidth + "<br/>");
+
+        </script>
+    </p>
+</body>
+</html>

@@ -1,0 +1,40 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <script>
+
+        function newDoc() {
+            window.location.assign("http://www.baidu.com");
+        }
+    </script>
+</head>
+<body>
+    <p>点击下面的按钮，循环遍历对象 "person" 的属性。</p>
+    <button onclick="fun()">点击这里</button>
+    <p id="d"></p>
+    <script>
+        function fun() {
+            var person = { id: 100, name: "czh", age: 23 }
+            var t = "";
+            for (var x in person) {
+                t = t + person[x]+" ";
+            }
+            document.getElementById("d").innerHTML = t;
+        }
+    </script>
+    <script>
+        document.writeln("宽度：" + screen.availWidth + "<br/>");
+        document.writeln("高度：" + screen.availHeight + "<br/>");
+        document.writeln(location.href + "<br/>");
+        function goBack() {
+            history.back();
+        }
+    </script>
+    <input type="button" value="加载" onclick="newDoc()" />
+    <input type="button" value="Go Back" onclick="goBack()" />
+
+</body>
+</html>

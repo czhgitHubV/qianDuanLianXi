@@ -1,0 +1,71 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>CSS 边框:画西瓜</title>
+    <!--<link rel="stylesheet" href="StyleSheet1.css" type="text/css"/>-->
+    <style>
+        .p1{
+            background-color:red;
+            width:200px;
+            height:200px;
+            border:15px solid green;
+            border-radius:115px 115px;
+            z-index:2;
+        }
+        .p2{
+            background-color:greenyellow;
+            border-top-right-radius:400px;
+            border-bottom-left-radius:400px;
+            width:200px;
+            height:200px;
+            border:10px solid red;
+            z-index:1;
+         }
+    </style>
+</head>
+<body>
+    <div class="p1">
+        <div class="p3"></div>
+        <div class="p4"></div>
+        <div class="p5"></div>
+        <div class="p6"></div>
+        <div class="p7"></div>
+        <div class="p8"></div>
+    </div>
+    <script>
+        var p1 = document.getElementsByClassName("p1")[0];
+        for (var i = 1; i <= 50; i++) {
+            var d = document.createElement("div");
+            d.style.position = "absolute";
+            d.style.width = "20px";
+            d.style.height = "20px";
+            d.style.backgroundColor="black"
+            d.style.borderBottomLeftRadius="40px";
+            d.style.borderTopRightRadius = "40px";
+            var s1 = 180 * Math.random();
+            var s2 = 180 * Math.random();
+            var m1 = Math.pow(s1 - 100, 2) + Math.pow(s2 - 100, 2);
+            var m2 = Math.pow(s1 - 80, 2) + Math.pow(s2 - 80, 2);
+            var m3 = Math.pow(s1 - 85, 2) + Math.pow(s2-100, 2);
+            var m4 = Math.pow(s1-100, 2) + Math.pow(s2 - 85, 2);
+            while (m1 >= 100 * 100 || m2 >= 100 * 100 || m3 >= 100 * 100 || m4 >= 100 * 100) {
+                s1 = 180 * Math.random();
+                s2 = 180 * Math.random();
+                m1 = Math.pow(s1 - 100, 2) + Math.pow(s2 - 100, 2);
+                m2 = Math.pow(s1 - 80, 2) + Math.pow(s2 - 80, 2);
+                m3 = Math.pow(s1 - 85, 2) + Math.pow(s2-100, 2);
+                m4 = Math.pow(s1-100, 2) + Math.pow(s2 - 85, 2);
+                if (m1 < 100 * 100 && m2 < 100 * 100 && m3 < 100 * 100 && m4 < 100 * 100) {
+                    break;
+                }
+            }
+            d.style.margin = s1 + "px 0px 0px " + s2 + "px";
+            p1.appendChild(d);
+            
+        }
+
+    </script>
+</body>
+</html>

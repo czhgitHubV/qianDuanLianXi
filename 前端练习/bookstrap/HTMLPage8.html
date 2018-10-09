@@ -1,0 +1,117 @@
+﻿<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap 101 Template</title>
+
+    <link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+</head>
+<body>
+    <div class="container">
+        <form>
+            <br />
+            <div class="form-group">
+                <label for="email">Email Address</label>
+                <input type="text" class="form-control" id="email" placeholder="Email" />
+            </div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" class="form-control" id="password" placeholder="Password" />
+            </div>
+            <div class="form-group">
+                <label for="file">File Input</label>
+                <input type="file" id="file" />
+                <p class="help-block">Example block-level help text here.</p>
+            </div>
+            <div class="checkbox">
+                <label>
+                    <input type="checkbox" />Check me out
+                </label>
+            </div>
+            <button type="submit" class="btn btn-default">Submit</button>
+        </form>
+        <hr />
+
+        <form class="form-inline">
+            <div class="form-group">
+                <label for="name">Name</label>
+                <input type="text" class="form-control" id="name" placeholder="Jack" />
+            </div>
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" class="form-control" id="email" placeholder="czh@qq.com" />
+            </div>
+            <button type="submit" class="btn btn-default">Send invitation</button>
+        </form>
+        <br />
+
+        <form class="form-inline">
+            <div class="form-group">
+                <label for="name" class="sr-only">Name</label>
+                <input type="text" class="form-control" id="name" placeholder="Jack" />
+            </div>
+            <div class="form-group">
+                <label for="email" class="sr-only">Email</label>
+                <input type="email" class="form-control" id="email" placeholder="czh@qq.com" />
+            </div>
+            <div class="checkbox">
+                <label>
+                    <input type="checkbox" />Remenber me
+                </label>
+            </div>
+            <button type="submit" class="btn btn-default">Sign in</button>
+        </form>
+        <br />
+
+        <form class="form-inline">
+            <div class="form-group">
+                <label class="sr-only" for="amount">Amount(in dollars)</label>
+                <div class="input-group">
+                    <div class="input-group-addon">$</div>
+                    <input type="text" class="amount" id="amount" placeholder="Amount" />
+                    <div class="input-group-addon">.00</div>
+                </div>
+            </div>
+            <button type="submit" class="btn btn-primary">Transfer cash</button>
+        </form>
+        <br />
+
+        <form class="form-horizontal">
+            <div class="form-group">
+                <label for="email" class="col-md-2 control-label">Email</label>
+                <div class="col-md-3">
+                    <input type="email" class="form-control" id="email" placeholder="Email" />
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="password" class="col-md-2 control-label">Password</label>
+                <div class="col-md-3">
+                    <input type="password" class="form-control" id="password" placeholder="Password" />
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-3 ">
+                    <div class="checkbox">
+                        <label>
+                            <input type="checkbox" />Remenber me
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-md-1 col-md-offset-2">
+                    <button type="submit" class="btn btn-default">Sign in</button>
+                </div>
+                <div class="col-md-1 col-md-offset-0">
+                    <button type="reset" class="btn btn-default">Reset</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</body>
+</html>

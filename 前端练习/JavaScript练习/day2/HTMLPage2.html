@@ -1,0 +1,84 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>JavaScript 函数调用</title>
+</head>
+<body>
+    <a href="javascript:void(alert('Warning!!!'))">点我!</a>
+    <p id="p"></p>
+    <script>
+        (function () {
+            document.getElementById("p").innerHTML = "Hello! 我是自己调用的";
+        })();
+    </script>
+    <hr />
+    <p id="p1"></p>
+    <script>
+        function myFun(a, b) {
+            this.fName = a;
+            this.lName = b;
+        }
+        var x = new myFun("John", "Doe");
+        document.getElementById("p1").innerHTML = x.fName;
+    </script>
+    <hr />
+    <p id="p1"></p>
+    <script>
+        function myFun(a, b) {
+            this.fName = a;
+            this.lName = b;
+        }
+        var x = new myFun("John", "Doe");
+        document.getElementById("p1").innerHTML = x.fName;
+    </script>
+    <hr />
+    <p id="p2"></p>
+    <p id="p3"></p>
+    <script>
+        var myOb;
+        function myFun(a, b) {
+            return a * b;
+        }
+        myOb = myFun.call(myOb, 2, 19);
+        document.getElementById("p2").innerHTML = myOb;
+        
+        var arr = [22,8];
+        myOb = myFun.apply(myOb, arr);
+        document.getElementById("p3").innerHTML = myOb;
+    </script>
+    <hr />
+    <script>
+        var person = function () {
+            var name = "czh";
+            return {
+                getName: function () {
+                    return name;
+                },
+                setName: function (newName) {
+                    name = newName;
+                }
+            }
+        }
+        document.writeln(person.getName());
+        person.setName("czm");
+        document.writeln(person.getName());
+    </script>
+    <p>局部变量计数。</p>
+    <button type="button" onclick="myFun1()">计数</button>
+    <p id="demo">0</p>
+    <script>
+        var add = (function () {
+            var num = 0;
+            return function () {
+                return num += 1;
+            }
+        })();
+        function myFun1() {
+            document.getElementById("demo").innerHTML = add();
+        }
+    </script>
+
+</body>
+</html>

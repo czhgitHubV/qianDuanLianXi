@@ -1,0 +1,51 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="Expires" content="0">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Cache-control" content="no-cache">
+    <meta http-equiv="Cache" content="no-cache">
+    <title>innerHTML 属性</title>
+    
+</head>
+<body>
+    <p id="intro">Hello world!</p>
+    <script type="text/javascript">
+        document.getElementById("intro").innerHTML += " kkkk";
+    </script>
+    <hr />
+    <script>
+        var x = document.getElementById("intro");
+        var v2 = x.firstChild.nodeValue;
+        var v3 = x.nodeValue;
+        var v4 = x.getAttribute("id");
+        document.writeln(v2);
+        document.writeln(v3);
+        document.writeln(v4);
+        document.writeln(x.getAttributeNode("id").nodeType);
+    </script>
+    <hr />
+    <div id="div1">
+        <p id="p1">Hello world!</p>
+        <p id="p2">Hello world!</p>
+    </div>
+    <script>
+        var p1 = document.getElementById("p1");
+        p1.style.color = "blue";
+        p1.style.fontFamily = "仿宋";
+        document.getElementById("p2").style.fontSize = "larger";
+
+        var p3 = document.createElement("p");
+        var node = document.createTextNode("这是一个新段落。");
+        p3.appendChild(node);
+        document.getElementById("div1").appendChild(p3);
+        var att=document.createAttribute("id");
+        p3.setAttributeNode(att);
+        p3.setAttribute("id", "p3");
+        document.writeln(document.getElementById("p3").innerText);
+        
+    </script>
+</body>
+</html>

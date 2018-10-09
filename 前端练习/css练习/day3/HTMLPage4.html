@@ -1,0 +1,36 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>CSS Position(定位)-position:relative;</title>
+    <style>
+        .pos_left{
+            position:relative;
+            left:-200px;
+        }
+        .pos_right{
+            position:relative;
+            left:200px;
+        }
+        .pos_top{
+            position:relative;
+            top:-50px;
+        }
+    </style>
+</head>
+<body>
+    <p style="color:red;"><b>都是相当于自己的位置</b></p>
+    <h2>这是位于正常位置的标题</h2>
+    <h2 class="pos_left">这个标题相对于其正常位置向左移动</h2>
+    <h2 class="pos_right">这个标题相对于其正常位置向右移动</h2>
+    <p>相对定位会按照元素的原始位置对该元素进行移动。</p>
+    <p>样式 "left:-20px" 从元素的原始左侧位置减去 20 像素。</p>
+    <p>样式 "left:20px" 向元素的原始左侧位置增加 20 像素。</p>
+    <hr />
+    <h2>这是一个没有定位的标题</h2>
+    <h2 class="pos_top">这个标题是根据其正常位置向上移动</h2>
+    <p><b>注意:</b> 即使相对定位元素的内容是移动,预留空间的元素仍保存在正常流动。</p>
+
+</body>
+</html>

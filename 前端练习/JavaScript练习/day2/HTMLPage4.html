@@ -1,0 +1,34 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body>
+    <h3>页面显示时钟</h3>
+    <p id="t"></p>
+    <p id="t1"></p>
+    <button type="button" onclick="pause()">暂停</button>
+    <button onclick="clearPause()">取消暂停</button>
+    <script>
+        var timer=setInterval(function () {
+            var t= new Date();
+            document.getElementById("t").innerHTML = t.getHours() + ":" + t.getMinutes() + ":" + t.getSeconds();
+            document.getElementById("t1").innerHTML = t.toLocaleTimeString();
+        }, 1000);
+
+        function pause() {
+            clearInterval(timer);
+        }
+
+        function clearPause() {
+            timer = setInterval(function () {
+                var t = new Date();
+                document.getElementById("t").innerHTML = t.getHours() + ":" + t.getMinutes() + ":" + t.getSeconds();
+                document.getElementById("t1").innerHTML = t.toLocaleTimeString();
+            }, 1000);
+        }
+    </script>
+</body>
+</html>

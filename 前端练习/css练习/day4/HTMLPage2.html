@@ -1,0 +1,54 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>:after/::after和:before/::before的作用及使用方法</title>
+    <style>
+        .p1:before{
+            content:"hello";
+            color:red;
+        }
+        .p1:after{
+            content:"czh";
+            color:yellowgreen;
+        }
+        .d1:after{
+            content:"";
+            display:inline-block;
+            width:0;
+            height:0;
+            border:8px solid transparent;
+            border-left:8px solid #AFABAB;
+            position:relative;
+            top:2px;
+            left:10px;
+        }
+        .d1:hover{
+            cursor:pointer;
+        }
+        .d2{
+            display:block;
+            width:0px;
+            height:0px;
+            border:8px solid #ffffff;
+            border-left:8px solid #000000;
+        }
+        .d2:hover{
+            cursor:pointer;
+        }
+    </style>
+</head>
+<body>
+    <h1>:before 和 :after 的主要作用是在元素内容前后加上指定内容</h1>
+    <p class="p1">您好</p>
+    <h1>:before和:after 用来写小三角形</h1>
+    <div class="d1" onclick="f()">这是一个测试</div>
+    <div class="d2" onclick="f()"></div>
+    <script>
+        function f() {
+            alert("kkk");
+        }
+    </script>
+</body>
+</html>

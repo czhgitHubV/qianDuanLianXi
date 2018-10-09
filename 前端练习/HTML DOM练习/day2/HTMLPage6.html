@@ -1,0 +1,78 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>事件监听</title>
+    <script>
+        function fun(e) {
+            var btnNum = e.button;
+            //if (btnNum == 0) {
+            //    alert("按左键");
+            //}else if (btnNum == 2) {
+            //    alert("按右键");
+            //}else if (btnNum == 3) {
+            //    alert("按左右键");
+            //}else if (btnNum == 1) {
+            //    alert("按中间键");
+            //}else if (btnNum == 5) {
+            //    alert("按左和中间键");
+            //}else if (btnNum == 6) {
+            //    alert("按右和中间键");
+            //}else if (btnNum == 7) {
+            //    alert("按所有键");
+            //} else {
+            //    alert("您点击了" + btnNum + "号键，我不能确定它的名称。");
+            //}
+            
+            alert("x=" + e.clientX + " ;y=" + e.clientY);
+            alert("x=" + e.offsetX + " ;y=" + e.offsetY);
+            alert("x=" + e.screenX + " ;y=" + e.screenY);
+            alert("x=" + e.x + " ;y=" + e.y);
+
+
+        }
+
+        function key(e) {
+            //alert(e.keyCode);//W:87;A:65;S:83;D:68
+            var k = e.keyCode;
+            var d = document.getElementById("d");
+            var i = 10;
+            if (k == 87) {//上
+                d.vspace -= i;
+                if (d.vspace <= 0) {
+                    d.vspace = "760";
+                }
+            } else if (k == 83) {//下
+                d.vspace += i;
+                if (d.vspace >= 760) {
+                    d.vspace = "0";
+                }
+            } else if (k == 65) {//左
+                d.hspace -= i;
+                if (d.hspace <= 0) {
+                    d.hspace = "600";
+                }
+            } else if (k == 68) {//右
+                d.hspace += i;
+                if (d.hspace >= 600) {
+                    d.hspace = "0";
+                }
+            }
+        }
+        function ele(e) {
+            var tag = e.target;
+            var tname = tag.tagName;
+            //alert("你点击了" + tname + "元素");
+            var type = e.type;
+            alert(type);
+        }
+
+    </script>
+</head>
+<body onmousedown="ele(event)" style="width:100%;height:1000px;">
+    <p>请在文档中点击鼠标。一个消息框会提示出您点击了哪个鼠标按键。</p>
+    <img id="d" border="1" src="http://www.runoob.com/try/demo_source/compman.gif" width="107" height="98" vspance="0" hspace="0" >
+    <h3>这是标题</h3>
+</body>
+</html>

@@ -1,0 +1,63 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>下拉框</title>
+    <script>
+        function dis() {
+            document.getElementById("s").disabled=true;
+        }
+
+        function ena() {
+            document.getElementById("s").disabled=false;
+        }
+
+        function changeSize() {
+            document.getElementById("s").size = 4;
+            document.getElementById("s").multiple = true;
+        }
+        function getOptions() {
+            var s = document.getElementById("s");
+            var txt="选中的选项是："
+            for (var i = 0; i < s.length; i++) {
+                if (s.options[i].selected) {
+                    txt = txt + "\n" + s.options[i].index;
+                }
+            }
+            alert(txt);
+        }
+
+        function changeText() {
+            var s = document.getElementById("s");
+            s.options[s.selectedIndex].text = "西瓜";
+        }
+        function removeOption() {
+            var s = document.getElementById("s");
+            s.remove(s.selectedIndex);
+        }
+
+    </script>
+</head>
+<body>
+    <form id="selectForm">
+        <select id="s">
+            <option>苹果</option>
+            <option>梨子</option>
+            <option>香蕉</option>
+            <option>橙子</option>
+        </select>
+        <br />
+        <input type="button" onclick="dis()" value="禁用列表" />
+        <input type="button" onclick="ena()" value="启动列表" />
+        <input type="button" onclick="changeSize()" value="修改列表大小"/>
+        <input type="button" onclick="getOptions()" value="输出选中选项" />
+        <input type="button" onclick="changeText()" value="设置你的选项" />
+        <input type="button" onclick="removeOption()" value="移除你的选项">
+    </form>
+    <script>
+        document.write(document.getElementById("s").form.id + "<br/>");
+        document.write(document.getElementById("s").length + "<br/>");
+    </script>
+</body>
+</html>

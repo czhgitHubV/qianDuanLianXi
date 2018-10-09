@@ -1,0 +1,97 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>css before和after伪类的一些用法</title>
+    <style>
+        *{
+            box-sizing:border-box;
+        }
+        .ring li{
+            position:relative;
+            float:left;
+            width:100px;
+            height:100px;
+            margin:20px;
+            padding:10px;
+            list-style-type:none;
+            background-color:#b6ff00;
+            border-radius:50%;
+        }
+        .ring li:hover{
+            cursor:pointer;
+        }
+        .ring li:after {
+            content: '';
+            display: block;
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            left: -6px;
+            top: -6px;
+            border: 6px dashed rgb(204, 204, 204);
+            border-radius:50%;
+        }
+        .ring li > div {
+	        height: 100%;
+	        background: rgb(158, 234, 106);
+	        border-radius: 50%;
+	        box-shadow: 0 0 3px rgba(0,0,0,0.3);
+	        text-align: center;
+	        line-height: 80px;
+	        font-size: 16px;
+	        color: rgb(255, 255, 255);
+        }
+        @-webkit-keyframes circle{
+	        0%{ transform:rotate(0deg); }
+	        100%{ transform:rotate(-360deg); }
+        }
+        @-moz-keyframes circle{
+	        0%{ transform:rotate(0deg); }
+	        100%{ transform:rotate(-360deg); }
+        }
+        .ring li:hover:before {
+	        -webkit-animation: circle 4s infinite linear;
+            -moz-animation:circle 4s infinite linear;
+            animation:circle 4s infinite linear;
+        }
+        .ring li:first-child:before {
+	        -webkit-animation: circle 4s infinite linear;
+            -moz-animation:circle 4s infinite linear;
+            animation:circle 4s infinite linear;
+        }
+        .ring li:hover:before {
+	        border-color: rgba(204, 204, 204, .8);
+        }
+        .ring li:active:before {
+	        border-color: orange;
+        }
+        .ring li:hover > div {
+	        background: rgba(158, 234, 106, .8);
+        }
+ 
+        .ring li:active > div {
+	        background: rgba(0, 0, 255, .5);
+        }
+ 
+        .ring li:last-child,.ring li:last-child > div,.ring li:last-child:before {
+	        border-radius: 0;
+        }
+        
+
+
+    </style>
+</head>
+<body>
+    <div class="container ring">
+        <p>圆环旋转</p>
+        <ul>
+            <li><div></div></li>
+            <li><div></div></li>
+            <li><div>登录</div></li>
+            <li><div></div></li>
+        </ul>
+    </div>
+</body>
+</html>

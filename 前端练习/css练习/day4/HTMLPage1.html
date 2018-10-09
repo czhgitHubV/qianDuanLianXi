@@ -1,0 +1,110 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>创建一个没有表格的网页2</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+        .u1{
+            list-style-type:none;
+            background-color:gray;
+            margin:0;
+            padding:0;
+        }
+        .u1 li{
+            display:inline;
+        }
+
+        .u1 li a{
+            color:white;
+            text-decoration:none;
+            display:inline-block;
+            padding:22px;
+            margin-left:-5px;
+            text-align:center;
+        }
+        .u1 li a:hover{
+            background-color:black;
+        }
+
+        .d{
+            padding-top:20px;
+        }
+        .d:after{
+            content:"";
+            clear:both;
+            display:table;
+        }
+        .d1{
+            width:25%;
+            float:left;
+        }
+        .d1 .u2{
+            overflow:hidden;
+            margin:0;
+            padding:0;
+            list-style-type:none;
+            background-color:navajowhite;
+        }
+        .d1 .u2 li a{
+            vertical-align:middle;
+            text-decoration:none;
+            display:block;
+            padding:20px;
+        }
+        .d1 .u2 li a.active2{
+            background-color:aqua;
+        }
+        .d1 .u2 li a:hover{
+            background-color:gray;
+        }
+        .d2{
+            width:75%;
+            padding-left:20px;
+            float:left;
+            padding-right:15px;
+        }
+        .d2 .title{
+            height:200px;
+            background-color:cornflowerblue;
+            color:white;
+            text-align:center;
+            font-size:50px;
+            padding-top:50px;
+        }
+
+    </style>
+</head>
+<body>
+    <ul class="u1">
+        <li><a href="#" class="active" style="background-color: forestgreen;">主页</a></li>
+        <li><a href="#">新闻</a></li>
+        <li><a href="#">联系我们</a></li>
+        <li><a href="#">关于我们</a></li>
+    </ul>
+    <div class="d">
+        <div class="d1">
+            <ul class="u2">
+                <li><a href="#">The Flight</a></li>
+                <li><a href="#" class="active2" style="background-color: aqua;">The City</a></li>
+                <li><a href="#">The Island</a></li>
+                <li><a href="#">The Food</a></li>
+                <li><a href="#">The People</a></li>
+                <li><a href="#">The History</a></li>
+                <li><a href="#">The Oceans</a></li>
+            </ul>
+        </div>
+        <div class="d2">
+            <div class="title">The City</div>
+            <div class="content">
+                <h1>Chania</h1>
+                <p>Chania is the capital of the Chania region on the island of Crete. The city can be divided in two parts, the old town and the modern city.</p>
+                <p>You will learn more about responsive web pages in a later chapter.</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

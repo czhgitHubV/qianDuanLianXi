@@ -1,0 +1,31 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>CSS Position(定位)-(重叠的元素)z-index</title>
+    <style>
+        img{
+            position:absolute;
+            top:8px;
+            left:8px;
+            clip:rect(0px 100px 120px 40px);/*裁剪*/
+            z-index:1;
+        }
+        body{
+            background-repeat:no-repeat;
+            background-size:cover;/*背景覆盖全部*/
+        }
+        div{
+            width:100px;
+            height:120px;
+            background-color:gray;
+        }
+    </style>
+</head>
+<body>
+    <img src="ss52.png" width="100" height="120" />
+    <div></div>
+    <h1>因为图像元素设置了 z-index 属性值为 -1, 所以它会显示在文字之后。</h1>
+</body>
+</html>

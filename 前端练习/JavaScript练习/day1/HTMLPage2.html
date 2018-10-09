@@ -1,0 +1,44 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body>
+    <script>
+        a = Number(true);
+        document.write(a + "<br/>");
+        d = new Date();
+        t = Number(d);
+        document.write(t + "<br/>");
+        document.write(Number(d.getYear()) + "<br/>");
+        document.write(Number(d.getMonth()) + "<br/>");
+        document.write(Number(d.getDate()) + "<br/>");
+        document.write(Number(d.getHours()) + "<br/>");
+        document.write(Number(d.getMinutes()) + "<br/>");
+        document.write(Number(d.getSeconds()) + "<br/>");
+        document.write(Number(d.getTime()) + "<br/>");
+        document.write(Number("99 88") + "<br/>");//NaN
+        var y = "5";
+        var x = +y;
+        document.write(x + "<br/>");
+        var s = "Visit aaczh!";
+        document.write(s.search(/czh/i) + "<br/>");
+        var pat = /czh/;
+        document.write(pat.test("dscgdhus ch cz h uhdjude") + "<br/>");
+        document.write(/czh1/.exec("dygfhsg czh1 czh1 hdsc"));
+        
+
+    </script>
+    <p id="demo">请访问 Microsoft!</p>
+    <button onclick="myFunction()">点我</button>
+    <script>
+        function myFunction() {
+            var str = document.getElementById("demo").innerHTML;
+            var txt = str.replace("Microsoft", "czh");
+            document.getElementById("demo").innerHTML = txt;
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,77 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body>
+    <p>输入数字并点击验证按钮:</p>
+    <input type="number" id="id" min="100" max="300" required />
+    <span id="d"></span><br />
+    <button onclick="fun()">验证</button>
+    <hr />
+    <p>输入数字并点击验证按钮:</p>
+    <input type="number" id="id1" min="100" max="300" required />
+    <span id="d1"></span><br />
+    <button onclick="fun1()">验证1</button>
+    <hr />
+    <p>输入数字并点击验证按钮:</p>
+    <input type="number" id="id2" min="100" max="300" required />
+    <span id="d2"></span><br />
+    <button onclick="fun2()">验证2</button>
+
+    <script>
+        function fun() {
+            var s = document.getElementById("id");
+            var p = document.getElementById("d");
+            s.setCustomValidity("");
+            alert(s.checkValidity());
+            if (s.checkValidity() == false) {
+                if (s.value == "") {
+                    s.setCustomValidity("不能为空");
+                } else if (s.value < 100 || s.value > 300) {
+                    s.setCustomValidity("值必须是100~300之间");
+                }
+                p.innerHTML = s.validationMessage;
+                p.style.color = "red";
+            } else {
+                p.innerHTML = "输入正确";
+                p.style.color = "green";
+            }
+        }
+
+        function fun1() {
+            var s1 = document.getElementById("id1");
+            var p1 = document.getElementById("d1");
+            var t;
+            if (s1.validity.rangeOverflow) {
+                t = "值太大了"
+            } else {
+                t = "输入正确";
+            }
+            p1.innerHTML = t;
+
+        }
+
+        function fun2() {
+            var s2 = document.getElementById("id2");
+            var p2 = document.getElementById("d2");
+            var t2;
+            if (!isNumber(s2.value)) {
+                t = "你输入的不是数字";
+            } else if (s2.validity.rangeUnderflow) {
+                t = "你输入的值太小了";
+            } else {
+                t = "输入正确";
+            }
+            p2.innerHTML = t;
+        }
+
+        function isNumber(n) {
+            return !isNaN(parseFloat(n)) && isFinite(n);
+        }
+
+    </script>
+</body>
+</html>

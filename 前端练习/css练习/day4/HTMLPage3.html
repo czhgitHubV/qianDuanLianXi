@@ -1,0 +1,99 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>用:after和:before 写一个对话框</title>
+    <style>
+        .left,.right{
+            min-height:40px;
+            position:relative;
+            display:table;
+            text-align:center;
+            border-radius:7px;
+            background-color:#9EEA6A;
+        }
+        .left{
+            left:20px;
+        }
+        .right{
+            top:40px;
+            left:80px;
+        }
+        .left>p,.right>p{
+            display:table-cell;
+            vertical-align:middle;
+            padding:0 10px;
+        }
+        .left:before,.right:after{
+            content:"";
+            display:block;
+            width:0;
+            height:0;
+            border:8px solid transparent;
+            position:absolute;
+            top:11px;
+        }
+        .left:before{
+            border-right:8px solid #9EEA6A;
+            left:-16px;
+        }
+        .right:after{
+            border-left:8px solid #9EEA6A;
+            right:-16px;
+        }
+
+        .left1,.right1{
+            min-height:40px;
+            position:relative;
+            display:table;
+            border-radius:7px;
+            text-align:center;
+            top:90px;
+            background-color:gray;
+        }
+        .left1{
+            left:20px;
+        }
+        .right1{
+            top:140px;
+            left:175px;
+        }
+        .left1>p,.right1 p{
+            display:table-cell;
+            vertical-align:middle;
+            padding:0 10px;
+        }
+        .left1:before,.right1:after{
+            content:"";
+            width:0;
+            height:0;
+            border:8px solid #ffffff;
+            position:absolute;
+            top:11px;
+        }
+        .left1:before{
+            border-right:8px solid #808080;
+            left:-16px;
+        }
+        .right1:after{
+            border-left:8px solid #808080;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="left">
+        <p>你吃了吗？你想吃什么？</p>
+    </div>
+    <div class="right">
+        <p>吃过了，吃了红烧排骨和酸菜鱼。</p>
+    </div>
+    <div class="left1">
+        <p>吃饭了，有菜有鱼!</p>
+    </div>
+    <div class="right1">
+        <p>have a lot of food!</p>
+    </div>
+</body>
+</html>

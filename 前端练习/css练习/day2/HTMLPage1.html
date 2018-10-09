@@ -1,0 +1,38 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>CSS 盒子模型</title>
+    <style>
+        .d1{
+            width:300px;
+            border:25px solid green;
+            margin:25px;
+            padding:25px;
+        }
+
+        .d2{
+            width:300px;
+            border:25px solid red;
+            margin:25px;
+            padding:25px;
+        }
+        .p1{
+            width:300px;
+            border-top:2px dotted red;
+            border-right:3px solid green;
+            border-bottom:10px dotted blue;
+            border-left-style:solid;
+        }
+    </style>
+</head>
+<body>
+    <p>CSS盒模型本质上是一个盒子，封装周围的HTML元素，它包括：边距，边框，填充，和实际内容。</p>
+
+    <div class="d1">这里是盒子内的实际内容。有 25px 内间距，25px 外间距、25px 绿色边框。</div>
+
+    <div class="d2">cvshdcvjhfdvj</div>
+    <p class="p1">边框-单独设置各边</p>
+</body>
+</html>

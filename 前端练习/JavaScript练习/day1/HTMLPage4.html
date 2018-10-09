@@ -1,0 +1,54 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <script>
+        function validateForm()
+        {
+            var x = document.forms["myForm"]["uname"].value;
+            console.log(document.forms);
+            if (x == null || x == "")
+            {
+                alert("需要输入名字。")
+                return false;
+            }
+            alert("kkk");
+        }
+        function myFunction() {
+            var e = document.getElementById("numb").value;
+            var t;
+            if (isNaN(e) || e < 0 || e > 10 || e == '') {
+                t = "输入错误";
+            } else {
+                t = "输入正确";
+            }
+            document.getElementById("demo").innerHTML = t;
+        }
+    </script>
+</head>
+<body>
+    <form name="myForm" action="http://localhost:50283/HTMLPage3.html" onsubmit="return validateForm()" method="get">
+        名字：<input type="text" name="uname" />
+        <input type="submit" value="提交" />
+    </form>
+    <p>请输入 1 到 10 之间的数字：</p>
+    <input type="text" id="numb" />
+    <button type="button" onclick="myFunction()">提交</button>
+    <p id="demo"></p>
+
+    <form action="demo" method="post">
+        <input type="text" name="uname" required/><br />
+        <input type="password" required />
+        <input type="submit" value="提交" />
+    </form>
+    <hr />
+    <form action="http://localhost:50283/HTMLPage3.html" method="get" >
+        <input type="text" name="uname" pattern="[A-Z]" /><br />
+        <input type="email" />
+        <input type="submit" value="提交" autofocus />
+    </form>
+
+</body>
+</html>

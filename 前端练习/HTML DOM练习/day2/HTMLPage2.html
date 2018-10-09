@@ -1,0 +1,90 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>html dom</title>
+</head>
+<body>
+    <h1 id="tz">页面2</h1>
+    <a href="#tz">回到页面1</a>
+    <a name="m1">锚点1</a>
+    <a name="m2">锚点2</a>
+    <a name="m3">锚点3</a>
+    <p>
+        锚点的数量：
+        <script>
+            document.write(document.anchors.length);
+        </script>
+    </p>
+    <p>第一个锚点：
+        <script>
+            document.write(document.anchors[0].innerHTML)
+        </script>
+    </p>
+    <hr />
+    <form name="f1">ddd</form>
+    <form name="f2"></form>
+    <form name="f3"></form>
+    <p>表单的数目：
+        <script>
+            document.writeln(document.forms.length);
+            document.writeln(document.forms[0].name)
+        </script>
+    </p>
+    <hr />
+    <img id="t1" src="http://www.runoob.com/try/demo_source/klematis.jpg" border="0" width="150" height="113" />
+    <img id="t2" src="http://www.runoob.com/try/demo_source/klematis2.jpg" border="0" width="120" height="120" />
+    <p>图像数目：
+        <script>
+            document.writeln(document.images.length);
+            document.writeln(document.images[0].id)
+        </script>
+    </p>
+    <hr />
+    <img src="http://www.runoob.com/try/demo_source/planets.gif" width="180" height="150" alt="Planets" usemap="#planetmap" />
+    <map name="planetmap">
+        <area target="_blank" shape="rect" coords="0,0,101.8,150" href="http://www.runoob.com/try/demo_source/sun.htm" title="Sun" />
+        <area target="_blank" shape="circle" coords="111.7,69,3" href="http://www.runoob.com/try/demo_source/mercur.htm" title="Mercury" />
+        <area target="_blank" shape="circle" coords="153,69.7,8" href="http://www.runoob.com/try/demo_source/venus.htm" title="Venus" />
+    </map>
+
+    <p>链接/地址数目：
+        <script>
+            document.writeln(document.links.length);
+        </script>
+    </p>
+    <hr />
+    <p>与此文档相关的Cookies:
+        <script>
+            document.write(document.cookie);
+        </script>
+    </p>
+    <hr />
+    <p>加载这个文件的域名:
+        <script>
+            document.write(document.domain);
+        </script>
+    </p>
+    <hr />
+    <p>
+        文档最后修改:
+        <script>
+            document.write(document.lastModified);
+        </script>
+    </p>
+    <p>
+        本文档的url:
+        <script>
+            document.write(document.URL);
+        </script>
+    </p>
+    <p>
+        文档的标题为: 
+        <script>
+            document.write(document.title);
+        </script>
+    </p>
+
+</body>
+</html>

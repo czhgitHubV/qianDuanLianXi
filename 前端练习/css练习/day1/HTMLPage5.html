@@ -1,0 +1,78 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>CSS 文本格式2</title>
+    <style>
+        p.small{
+            line-height:70%;
+        }
+        p.big{
+            line-height:200%;/*指定行与行之间的空间*/
+        }
+        div.ex1{direction:rtl;}/*设置元素的文本方向*/
+        p.p1{word-spacing:30px;}/*增加单词之间的空白空间*/
+        p.p2{white-space:nowrap;}/*在元素内禁用文字环绕*/
+        img.top{vertical-align:text-top;}/*垂直对齐图像*/
+        img.bottom{vertical-align:text-bottom;}/*垂直对齐图像*/
+        p.p3{text-shadow:4px 4px 1px #f00;}/*右下*/
+        p.p4{text-shadow:4px -4px 1px #f00;}/*右上*/
+        p.p5{text-shadow:-4px -4px 1px #f00;}/*左上*/
+        p.p6{text-shadow:-4px 4px 1px #f00;}/*左下*/
+        .threeD{ font-size:40px; font-weight:bold; text-align:center; padding:24px;   
+              text-shadow:0 0 4px white,    
+                                0 -5px 4px #ff3,   
+                                3px -10px 6px #fd3,    
+                                -3px -15px 11px #C90,   
+                                3px -25px 18px #f20;
+        }
+       
+    </style>
+</head>
+<body>
+    <h3>指定行与行之间的空间</h3>
+    <p>
+        这是一个标准行高的段落。<br>
+        这是一个标准行高的段落。<br>
+        大多数浏览器的默认行高约为110%至120%。<br>
+    </p>
+
+    <p class="small">
+        这是一个更小行高的段落。<br>
+        这是一个更小行高的段落。<br>
+        这是一个更小行高的段落。<br>
+        这是一个更小行高的段落。<br>
+    </p>
+
+    <p class="big">
+        这是一个更大行高的段落。<br>
+        这是一个更大行高的段落。<br>
+        这是一个更大行高的段落。<br>
+        这是一个更大行高的段落。<br>
+    </p>
+    <h3>设置元素的文本方向</h3>
+    <div>一些文本。 默认书写方向</div>
+    <div class="ex1">一些文本。从右到左的书写方向。这是一个更大行高的段落，过得更好。</div>
+    <h3>增加单词之间的空白空间</h3>
+    <p class="p1">This is some text. This is some text.</p>
+    <h3>在元素内禁用文字环绕</h3>
+    <p class="p2">
+        这是一些文本。这是一些文本。这是一些文本。这是一些文本。这是一些文本。
+        这是一些文本。这是一些文本。这是一些文本。这是一些文本。这是一些文本。
+        这是一些文本。这是一些文本。这是一些文本。这是一些文本。这是一些文本。
+        这是一些文本。这是一些文本。这是一些文本。这是一些文本。这是一些文本。
+        这是一些文本。这是一些文本。这是一些文本。这是一些文本。这是一些文本。
+    </p>
+    <h3>垂直对齐图像</h3>
+    <p>一个<img src="http://www.runoob.com/try/demo_source/logo.png" alt="w3cschool" width="270" height="50" />默认对齐的图像。</p>
+    <p>一个<img class="top" src="http://www.runoob.com/try/demo_source/logo.png" alt="w3cschool" width="270" height="50" />  text-top 对齐的图像。</p>
+    <p>一个<img class="bottom" src="http://www.runoob.com/try/demo_source/logo.png" alt="w3cschool" width="270" height="50" /> text-bottom 对齐的图像。</p>
+    <h3>添加文本阴影</h3>
+    <p class="p3">Text-shadow effect</p>
+    <p class="p4">Text-shadow effect</p>
+    <p class="p5">Text-shadow effect</p>
+    <p class="p6">Text-shadow effect</p>
+    <h1 class="threeD">淡然</h1>
+</body>
+</html>

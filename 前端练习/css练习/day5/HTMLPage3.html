@@ -1,0 +1,132 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>CSS3的content属性详解</title>
+    <style>
+        body{
+            counter-reset:my 0 section 1;
+        }
+        /*h1:before{
+            content:"第"counter(my)"章、";
+        }*/
+        .d1 h1:before{
+            content:counter(my,upper-alpha)"、";
+            color:red;
+            font-size:32px;
+        }
+        .d1 h1 {
+            counter-increment: my;
+        }
+        .box p:before{
+            content:counter(section)"、";
+        }
+        .box p{
+            counter-increment:section;
+        }
+
+        .d2 h1:before{
+            content:counter(d2)". ";
+        }
+        .d2 h1{
+            counter-increment:d2;
+            counter-reset:p2;
+        }
+        .d2 p:before{
+            content:counter(p2)". ";
+        }
+        .d2 p{
+            margin-left:20px;
+            counter-increment:p2;
+        }
+
+        .d3 h1:before{
+            content:counter(h1)".";
+        }
+        .d3 h1{
+            counter-increment:h1;
+            counter-reset:h2;
+        }
+        .d3 h2:before{
+            content:counter(h1)"-"counter(h2)".";
+        }
+        .d3 h2{
+            counter-increment:h2;
+            counter-reset:h3;
+            margin-left:30px;
+        }
+        .d3 h3:before{
+            content:counter(h1)"-"counter(h2)"-"counter(h3)".";
+        }
+        .d3 h3{
+            counter-increment:h3;
+            margin-left:60px;
+        }
+
+        .d4 p:before{
+            content:"Chapter "counter(d4)".";
+        }
+        .d4 p{
+            counter-increment:d4;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="d1">
+        <h1>大标题</h1>
+        <p>文字1</p>
+        <p>文字2</p>
+        <p>文字3</p>
+        <h1>大标题</h1>
+        <p>文字1</p>
+        <p>文字2</p>
+        <p>文字3</p>
+        <h1>大标题</h1>
+        <p>文字1</p>
+        <p>文字2</p>
+        <p>文字3</p>
+    </div>
+    <div class="box">
+        <p>【八项规定后茅台酒公务消费由30%下降到1% 官员曾用矿泉水瓶装酒】反腐纪录片</p>
+        <p>【八项规定后茅台酒公务消费由30%下降到1% 官员曾用矿泉水瓶装酒】反腐纪录片</p>
+        <p>【八项规定后茅台酒公务消费由30%下降到1% 官员曾用矿泉水瓶装酒】反腐纪录片</p>
+    </div>
+    <div class="d2">
+        <h1>大标题</h1>
+        <p>文字1</p>
+        <p>文字2</p>
+        <p>文字3</p>
+        <h1>大标题</h1>
+        <p>文字1</p>
+        <p>文字2</p>
+        <p>文字3</p>
+        <h1>大标题</h1>
+        <p>文字1</p>
+        <p>文字2</p>
+        <p>文字3</p>
+    </div>
+    <div class="d3">
+        <h1>大标题</h1>
+        <h2>中标题</h2>
+        <h3>小标题</h3>
+        <h3>小标题</h3>
+        <h2>中标题</h2>
+        <h3>小标题</h3>
+        <h3>小标题</h3>
+        <h1>大标题</h1>
+        <h2>中标题</h2>
+        <h3>小标题</h3>
+        <h3>小标题</h3>
+        <h2>中标题</h2>
+        <h3>小标题</h3>
+        <h3>小标题</h3>
+    </div>
+    <div class="d4">
+        <p>文字1</p>
+        <p>文字2</p>
+        <p>文字3</p>
+    </div>
+</body>
+</html>

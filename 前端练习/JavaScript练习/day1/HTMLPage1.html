@@ -1,0 +1,68 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-type" content="text/html; charset=gb2312">
+    <title></title>
+    <script>
+        var i = 0;
+        function changeImage() {
+            var e = document.getElementById("img")
+            if (e.src.match("bulboff")) {
+                e.src = "http://www.runoob.com/images/pic_bulbon.gif";
+            } else {
+                e.src = "http://www.runoob.com/images/pic_bulboff.gif";
+            }
+        }
+        function change() {
+            e = document.getElementById("p");
+            if(++i%2==0){
+                e.style.color = "red";
+            } else {
+                e.style.color = "blue";
+            }
+        }
+        function demo() {
+            t = document.getElementById("t").value;
+            if(t==''||isNaN(t)){
+                alert("不是数字");
+            }
+        }
+        function demo1() {
+            document.write(Date());
+        }
+    </script>
+</head>
+<body>
+    <img id="img" src="http://www.runoob.com/images/pic_bulboff.gif" onclick="changeImage()"/>
+    <p id="p">JavaScript 能改变 HTML 元素的样式。</p>
+    <button type="button" onclick="change()">点击这里</button>
+    <p>验证数字</p>
+    <input type="text" id="t" />
+    <button type="button" onclick="demo()">点击这里</button>
+    <p id="p1" onclick="myFunction()">一个段落。</p>
+    <script type="text/javascript" language="javascript" src="Script1.js"></script>
+    <button onclick="demo1()">点我</button>
+    <script>
+        a = 4;
+        b = 23;
+        c = a + b;
+        console.log(c);
+    </script>
+    <script>
+        console.log("kkkkk");
+        var v1 = 1;
+        v2 = 2;
+        console.log(this.v1);
+        console.log(window.v2);
+
+        delete v1;
+        console.log(v1);
+
+        delete v2;
+        console.log(delete v2);
+        console.log(v2);
+    </script>
+    <div id="d" onmouseup="alert('hdjcd')" style="background-color:red;">hello wolrd!</div>
+</body>
+</html>

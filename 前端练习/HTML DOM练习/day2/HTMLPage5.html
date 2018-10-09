@@ -1,0 +1,34 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>Image</title>
+    <script>
+        function fun() {
+            var m = document.getElementById("m");
+            //m.align = "left";
+            m.border = "2";
+            m.width = "150";
+            m.height = "150";
+            m.hspace = "200";
+            m.vspace = "20";
+        }
+    </script>
+</head>
+<body>
+    <img src="http://www.runoob.com/try/demo_source/compman.gif" id="m" title="Computer" longdesc="try/demo_source/compman.gif" usemap="#img" />
+    <p>
+        一些文本。一些文本。一些文本。一些文本。一些文本
+    </p>
+    <map name="img">
+        <area shape="rect" coords="0,0,50,50" href="http://localhost:50027/HTMLPage4.html" title="ddd" alt="s"/>
+    </map>
+    <input type="button" onclick="fun()" value="更改图片样式" />
+    <br/>
+    <script>
+        var mm=document.getElementById("m");
+        document.write(mm.title);
+    </script>
+</body>
+</html>

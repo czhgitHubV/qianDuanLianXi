@@ -1,0 +1,52 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <script>
+        function fun(e) {
+            e.disabled = "disabled";
+
+        }
+
+        function getV() {
+            var v = document.getElementById("h1");
+            alert(v.innerHTML);
+        }
+
+        function getE() {
+            var name = document.getElementsByName("p");
+            document.getElementById("b").disabled = "disabled";
+        }
+
+        function change() {
+            document.getElementById("bu").removeAttribute("disabled");
+        }
+
+        function reset() {
+            document.getElementById("f").reset;
+        }
+
+    </script>
+</head>
+<body>
+    <button id="bu" onclick="fun(this)">新文档</button>
+    <h1 id="h1" onclick="getV()">打击我</h1>
+    <input name="p" type="radio" value="cat" onclick="change()" />cat
+    <input name="p" type="radio" value="dog" onclick="change()"/>dog
+    <input id="b" type="button" value="名称为p的元素有多少个?" onclick="getE()" />
+
+    <form id="f">
+        <input type="text" id="p1" name="name" value="czh" />
+        <input type="text" id="p2" name="pwd" value="123" />
+        <input type="reset" value="重置" />
+    </form>
+    <script>
+        var f = document.getElementById("f");
+        for (var i = 0; i < f.length; i++) {
+            document.write(f.elements[i].value + "<br/>");
+        }
+    </script>
+</body>
+</html>

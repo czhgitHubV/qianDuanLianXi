@@ -1,0 +1,76 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>CSS 提示工具(Tooltip)</title>
+    <style>
+        .d1{
+            margin:60px;
+        }
+        .d1 div{
+            margin:0 20px;
+            display:inline-block;
+        }
+        .d1 div span{
+            position:absolute;
+            visibility:hidden;
+            background-color:gray;
+            padding:8px 10px;
+            border-radius:10px;
+            opacity:0;
+            transition:opacity 3s;
+        }
+        .d1 .a1 span{
+            margin-top:-65px;
+            margin-left:-18px;
+        }
+        .d1 .a2 span{
+            margin-top:8px;
+            margin-left:-18px;
+        }
+        .d1 .right span{
+            margin-top:-30px;
+            margin-left:78px;
+        }
+        .d1 div span:before{
+            content:"";
+            position:absolute;
+            border:8px solid transparent;
+        }
+        .d1 .a1 span:before {
+            border-top:8px solid gray;
+            margin-top:28px;
+            margin-left:28px;
+        }
+        .d1 .a2 span:before {
+            border-bottom:8px solid gray;
+            margin-top:-23px;
+            margin-left:28px;
+        }
+        .d1 .right span:before{
+            border-right:8px solid gray;
+            margin-top:2px;
+            margin-left:-25px;
+        }
+        .d1 div:hover span{
+            visibility:visible;
+            opacity:1;
+        }
+    </style>
+</head>
+<body>
+    <div class="d1">
+        <div class="a1">头部显示
+            <span>提示框文本</span>
+        </div>
+        <div class="a2">底部显示
+            <span>提示框文本</span>
+        </div>
+        <div>左边显示</div>
+        <div class="right">右边显示
+            <span>提示框文本</span>
+        </div>
+    </div>
+</body>
+</html>

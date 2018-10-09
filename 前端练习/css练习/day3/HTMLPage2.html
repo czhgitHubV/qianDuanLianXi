@@ -1,0 +1,67 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>CSS Display(显示) 与 Visibility（可见性）</title>
+    <style>
+        .h1{
+            display:none;
+        }
+        .h2{
+            visibility:hidden;
+        }
+        ul li{
+            display:inline;
+        }
+        span{
+            display:block;
+        }
+        table,th,td{
+            border:1px solid black;
+            border-collapse:collapse;
+        }
+        .collapse{
+            visibility:collapse;/*与hidden效果一样*/
+        }
+    </style>
+</head>
+<body>
+    <h1>这是一个可见标题</h1>
+    <h1 class="h1">这是一个隐藏的标题</h1>
+    <p>自己堕落</p>
+    <h1 class="h2">这是一个不可见标题</h1>
+    <p>注意visibility:hidden, 实例中的隐藏标题仍然占用空间。</p>
+    <a>a</a>
+    <a>a</a>
+    <span>span</span>
+    <div>div</div>
+    <div>div</div>
+    <hr />
+    <p>链接列表水平显示：</p>
+    <ul>
+        <li><a href="#">HTML</a></li>
+        <li><a href="#">CSS</a></li>
+        <li><a href="#">JavaScript</a></li>
+        <li><a href="#">XML</a></li>
+    </ul>
+    <h1>Nirvana</h1>
+    <span>Record: MTV Unplugged in New York</span>
+    <span>Year: 1993</span>
+    <hr />
+    <table>
+        <tr>
+            <th>Firstname</th>
+            <th>Lastname</th>
+        </tr>
+        <tr>
+            <td>Peter</td>
+            <td>Griffin</td>
+        </tr>
+        <tr class="collapse">
+            <td>Lois</td>
+            <td>Griffin</td>
+        </tr>
+    </table>
+</body>
+</html>
