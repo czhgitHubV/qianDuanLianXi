@@ -1,0 +1,35 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>应用</title>
+    <script src="angular.min-1.7.0.js"></script>
+</head>
+<body ng-app="myApp" ng-controller="myNoteCtrl">
+    <div style="width:auto;height:auto;border:1px solid gray;padding:20px;background-color:yellow;">
+        <h1>我的笔记</h1>
+        <textarea ng-model="message" cols="40" rows="10" onclick="this.select()"></textarea>
+        <p>
+            <button ng-click="save()">保存</button>
+            <button ng-click="clear()">清除</button>
+        </p>
+        <p>剩余字数：<span ng-bind="rest()"></span></p>
+    </div>
+    <script>
+        var app = angular.module("myApp", []);
+        app.controller("myNoteCtrl", function ($scope) {
+            $scope.message = "";
+            $scope.rest = function () {
+                return 100 - $scope.message.length;
+            }
+            $scope.save = function () {
+                alert("保存成功！");
+            }
+            $scope.clear = function () {
+                $scope.message = "";
+            }
+        });
+    </script>
+</body>
+</html>

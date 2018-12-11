@@ -1,0 +1,101 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>服务(Service)</title>
+    <script src="angular.min.js" type="text/javascript"></script>
+
+</head>
+<body ng-app="myApp">
+    <!--$location 服务-->
+    <div ng-controller="customersCtrl">
+        <p>{{myUrl }}</p>
+        <p>{{host }}</p>
+        <p>{{protocol }}</p>
+    </div>
+
+    <!--$http 服务-->
+    <div ng-controller="httpCtrl">
+        <h1>{{myWelcome}}</h1>
+    </div>
+
+    <!--$timeout 服务-->
+    <div ng-controller="timeoutCtrl">
+        <h1>{{myHeader }}</h1>
+    </div>
+
+    <!--$interval 服务-->
+    <div ng-controller="intervalCtrl">
+        <h1>{{theTime }}</h1>
+    </div>
+
+    <!--创建自定义服务-->
+    <div ng-controller="hexafyCtrl">
+        <p>255的16进制为：</p>
+        <h1>{{hex }}</h1>
+        <p>自定义服务，用于转换16进制数</p>
+    </div>
+
+    <!--过滤器使用服务将10进制转换为16进制-->
+    <div ng-app="myApp" ng-controller="myCtrl">
+        <p>在获取数组 [255, 251, 200] 值时使用过滤器:</p>
+        <ul>
+          <li ng-repeat="x in counts">{{x | myFormat}}</li>
+        </ul>
+        <p>过滤器使用服务将10进制转换为16进制。</p>
+    </div>
+
+    <script>
+        var app = angular.module("myApp", []);
+        app.controller("customersCtrl", function ($scope,$location) {
+            $scope.myUrl = $location.absUrl();
+            $scope.host = $location.host();
+            $scope.protocol = $location.protocol();
+
+        });
+        app.controller("httpCtrl", function ($scope, $http) {
+            $http.get("welcome.html").then(function (response) {
+                $scope.myWelcome = response.data;
+            });
+        });
+
+        //两秒后信息变为:How are you today?
+        app.controller("timeoutCtrl", function ($scope, $timeout) {
+            $scope.myHeader = "Hello World!";
+            $timeout(function () {
+                $scope.myHeader = "How are you today?";
+            },2000);
+        });
+
+        //每一秒显示信息:
+        app.controller("intervalCtrl", function ($scope, $interval) {
+            $scope.theTime = new Date().toLocaleTimeString();
+            $interval(function () {
+                $scope.theTime = new Date().toLocaleTimeString();
+            }, 1000);
+        });
+
+        //自定义服务，用于转换16进制数
+        app.service("$hexafy", function () {
+            this.myFunc = function (x) {
+                return x.toString(8);
+            }
+        });
+        app.controller("hexafyCtrl", function ($scope, $hexafy) {
+            $scope.hex = $hexafy.myFunc(255);
+        });
+        
+        //过滤器使用服务将10进制转换为16进制。
+        app.filter("myFormat", ["$hexafy", function (hexafy) {
+            return function (x) {
+                return hexafy.myFunc(x);
+            };
+        }]);
+        app.controller("myCtrl", function ($scope) {
+            $scope.counts = [255,251,200];
+        });
+
+    </script>
+</body>
+</html>

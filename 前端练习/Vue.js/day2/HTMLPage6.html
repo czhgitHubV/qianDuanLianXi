@@ -1,0 +1,47 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>事件处理器</title>
+    <script src="vue.min.js"></script>
+</head>
+<body>
+    <div id="app">
+        <button @click="counter+=1">增加1</button>
+        <p>这个按钮被点击了{{counter}}次</p>
+        <hr />
+        <button @click="greet">Greet</button>
+        <p>{{greet()}}</p>
+        <button @click="say('hi')">Say hi</button>
+        <button @click="say('what')">Say what</button>
+        <input @keyup.ctrl.65="doThis">
+        <input @keyup.alt.67="doThis">
+    </div>
+    <script>
+        var vm = new Vue({
+            el: "#app",
+            data: {
+                counter: 0,
+                name: "Vue.js"
+            },
+            methods: {
+                greet: function (event) {
+                    //alert("Hello " + this.name + "!");
+                    if (event) {
+                        console.log(event);
+                    }
+                    return "kkk";
+                },
+                say: function (msg) {
+                    alert(msg);
+                },
+                doThis: function () {
+                    alert("doThis");
+                }
+            }
+        });
+        vm.greet();
+    </script>
+</body>
+</html>

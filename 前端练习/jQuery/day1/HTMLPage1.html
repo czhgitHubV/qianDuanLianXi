@@ -1,0 +1,26 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <script src="jquery-1.9.1.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("#start").click(function () {
+                $("div").animate({ top: "800px" }, 5000);
+                $("div").animate({ top: "30px" }, 5000);
+                ////$("div").animate({ fontSize: "3em" }, 5000);
+            });
+            $("#stop").click(function () {
+                $("div").stop();
+            });
+        });
+    </script>
+</head>
+<body>
+    <button id="start">开始</button>
+    <button id="stop">停止</button>
+    <div style="background:#98bf21;height:100px;width:200px;position:absolute;">HELLO</div>
+</body>
+</html>

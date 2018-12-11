@@ -1,0 +1,24 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>包含</title>
+    <link rel="stylesheet" href="bootstrap.min.css">
+    <script src="angular.min.js"></script>
+
+</head>
+<body ng-app="myApp" ng-controller="userCtrl">
+    <div ng-include="'HTMLPage4.html'">
+    </div>
+    <script>
+        var app = angular.module("myApp", []);
+        app.controller("userCtrl", function ($scope) {
+            $scope.users = [{ fname: "111", lname: "aaa" },
+            { fname: "222", lname: "bbb" },
+            { fname: "333", lname: "ccc" }];
+           
+        });
+    </script>
+</body>
+</html>

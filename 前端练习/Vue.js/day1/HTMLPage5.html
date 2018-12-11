@@ -1,0 +1,32 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>插值:v-bind</title>
+    <script src="vue.min.js"></script>
+    <style>
+        .d{
+            color:red;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <label for="r1">修改颜色</label><input type="checkbox" v-model="val" id="=r1" />
+        <br />
+        <br />
+        <div v-bind:class="{'d':val}">
+            v-bind:class 指令
+        </div>
+    </div>
+    <script>
+        new Vue({
+            el: "#app",
+            data: {
+                val:false
+            }
+        })
+    </script>
+</body>
+</html>

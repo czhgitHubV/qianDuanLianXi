@@ -1,0 +1,65 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>循环语句v-for</title>
+    <script src="vue.min.js"></script>
+
+</head>
+<body>
+    <div id="app">
+        <ol>
+            <li v-for="site in sites">
+                {{site.name}}
+            </li>
+        </ol>
+        <ul>
+            <template v-for="site in sites">
+                <li>{{site.name}}</li>
+                <li>------------</li>
+            </template>
+        </ul>
+        <ul>
+            <template v-for="(site,index) in sites">
+                <li>{{index}}：{{site.name}}</li>
+                <li>------------</li>
+            </template>
+        </ul>
+        <ul>
+            <li v-for="value in object">
+                {{value}}
+            </li>
+        </ul>
+        <ul>
+            <li v-for="(val,key,index) in object">
+                {{index}}：{{key}}：{{val}}
+            </li>
+        </ul>
+        <ul>
+            <template v-for="n in 10">
+                <li v-if="n%2==1">
+                    {{n}}
+                </li>
+            </template>
+        </ul>
+    </div>
+    <script>
+        new Vue({
+            el: "#app",
+            data: {
+                sites: [
+                    { name: "Runoob" },
+                    { name: "Google" },
+                    { name: "Taobao" }
+                ],
+                object: {
+                    name: "陈志华",
+                    url: "http://www.runoob.com",
+                    slogen:"没有最好，只有更好！"
+                }
+            }
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,43 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>过滤器</title>
+    <script src="vue.min.js"></script>
+
+</head>
+<body>
+    <!-- 在两个大括号中 -->
+    <!--{{ message | capitalize }}-->
+
+    <!-- 在 v-bind 指令中 -->
+    <!--<div v-bind:id="rawId | formatId"></div>-->
+    <div id="app">
+        {{ message | capitalize}}
+        <button @click="fun">点击</button><!--相当于<button v-on:click="fun">点击</button>-->
+        <a :href="url">链接</a><!--相当于<a v-bind:href="url">链接</a>-->
+    </div>
+    <script>
+        var vm=new Vue({
+            el: "#app",
+            data: {
+                message: "czh",
+                url: "http://www.runoob.com"
+            },
+            methods:{
+                fun: function () {
+                    this.message = "kkk";
+                }
+            },
+            filters: {
+                capitalize: function (value) {
+                    if (!value) return "";
+                    value = value.toString();
+                    return value.charAt(0).toUpperCase() + value.slice(1);
+                }
+            }
+        })
+    </script>
+</body>
+</html>

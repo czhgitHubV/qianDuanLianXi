@@ -1,0 +1,35 @@
+﻿.sheetContent {
+    width: 86%;
+}
+
+@media screen and (max-width:1638px) {
+    .sheetContent {
+        width: 90%;
+    }
+}
+
+@media screen and (max-width:1366px) {
+    .sheetContent {
+        width: 100%;
+        padding-left: 0px;
+        padding-right: 0px;
+    }
+
+    .panel {
+        min-height: 300px;
+    }
+
+    #content-wrapper {
+        padding: 76px 0px 0px;
+    }
+
+    #main-navbar {
+        -moz-box-shadow: 0 0 5px #5C616B;
+        -webkit-box-shadow: 0 0 5px #5C616B;
+        box-shadow: 0 0 5px #5C616B;
+        left: 0;
+        right: 0;
+        position: absolute;
+        width: inherit;
+    }
+}

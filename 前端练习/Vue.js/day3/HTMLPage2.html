@@ -1,0 +1,33 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>自定义指令1</title>
+    <script src="vue.min.js"></script>
+</head>
+<body>
+    <div id="app">
+        <p>页面载入时，input 元素自动获取焦点：</p>
+        <input type="text" v-focus value="focus" />
+        <input type="text" v-select value="select" />
+    </div>
+    <script>
+        Vue.directive("focus", {
+            inserted: function (el) {
+                el.focus();
+            }
+        });
+        new Vue({
+            el: "#app",
+            directives: {
+                select: {
+                    inserted: function (el) {
+                        el.select();
+                    }
+                }
+            }
+        })
+    </script>
+</body>
+</html>

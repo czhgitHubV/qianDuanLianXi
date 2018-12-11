@@ -1,0 +1,90 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>监听属性3</title>
+    <script src="vue.min.js"></script>
+    <style>
+        table {
+            border: 1px solid black;
+            width:100%;
+        }
+        th{
+            height: 50px;
+        }
+        th,td{
+            border-bottom: 1px solid #ddd;
+            text-align:center;
+        }
+        button:hover {
+            background-color:yellow;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <table>
+            <tr>
+                <th>序号</th>
+                <th>商品名称</th>
+                <th>商品价格</th>
+                <th>购买数量</th>
+                <th>操作</th>
+            </tr>
+            <tr v-for="iphone in iphones">
+                <td>{{iphone.id}}</td>
+                <td>{{iphone.name}}</td>
+                <td>{{iphone.price}}</td>
+                <td><button @click="iphone.count--" style="padding:1px 8px;">-</button>&emsp;{{iphone.count}}&emsp;<button @click="iphone.count++">+</button></td>
+                <td><button @click="iphone.count=0">移除</button></td>
+            </tr>
+        </table>
+        总价：${{totalPrice()}}
+    </div>
+    <script>
+        var vm = new Vue({
+            el: '#app',
+            data: {
+                iphones:[{
+                    id: 1,
+                    name: "iphone 8",
+                    price: 5099,
+                    count: 1
+                },
+                {
+                    id: 2,
+                    name: "iphone XS",
+                    price: 8699,
+                    count: 1
+                },
+                {
+                    id: 3,
+                    name: "iphone 7",
+                    price: 6499,
+                    count: 1
+                }]
+            },
+            methods: {
+                totalPrice: function () {
+                    var totalP = 0;
+                    for (var i = 0, len = this.iphones.length; i < len; i++) {
+                        totalP += this.iphones[i].price * this.iphones[i].count;
+                    }
+                    return totalP;
+                }
+            },
+            computed: {
+                totalPrice: function () {
+                    var totalP = 0;
+                    for (var i = 0, len = this.iphones.length; i < len; i++) {
+                        totalP += this.iphones[i].price * this.iphones[i].count;
+                    }
+                    return totalP;
+                }
+            }
+        });
+            
+    </script>
+</body>
+</html>

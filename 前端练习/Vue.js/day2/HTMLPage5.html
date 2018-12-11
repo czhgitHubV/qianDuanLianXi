@@ -1,0 +1,33 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>样式绑定2</title>
+    <script src="vue.min.js"></script>
+</head>
+<body>
+    <div id="app">
+        <div v-bind:style="{color:colorT,fontSize:fontSize+'px'}">czh</div>
+        <div v-bind:style="styleObj">dfdf </div>
+        <div v-bind:style="[styleObj,overridingStyles]">hjsdhdj </div>
+    </div>
+    <script>
+        var vm = new Vue({
+            el: '#app',
+            data: {
+                colorT: "green",
+                fontSize: 30,
+                styleObj: {
+                    color: "red",
+                    "font-size": "30px"
+                },
+                overridingStyles: {
+                    "font-weight": "bold",
+                    fontSize:"25px"
+                }
+            }
+        });
+    </script>
+</body>
+</html>

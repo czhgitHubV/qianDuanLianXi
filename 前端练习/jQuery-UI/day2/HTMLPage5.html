@@ -1,0 +1,40 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <link href="jquery-ui.min.css" rel="stylesheet" />
+    <script src="jquery.min.js"></script>
+    <script src="jquery-ui.min.js"></script>
+    <style>
+        div{
+            width:20%;
+        }
+    </style>
+</head>
+<body>
+    <div id="tabs">
+        <ul>
+            <li><a href="#t1">一</a></li>
+            <li><a href="#t2">二</a></li>
+            <li><a href="#t3">三</a></li>
+        </ul>
+        <div id="t1">
+            <p>第一个标签是默认激活的：</p>
+            <pre><code>$( "#tabs" ).tabs(); </code></pre>
+        </div>
+        <div id="t2">
+            Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.
+            Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laor
+        </div>
+        <div id="t3">
+            Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.
+            Lorem ipsum dolor sit amet, consectet
+        </div>
+    </div>
+    <script>
+        $("#tabs").tabs();
+    </script>
+</body>
+</html>

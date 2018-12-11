@@ -1,0 +1,31 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>Ajax</title>
+    <script src="vue.min.js"></script>
+    <script src="vue-resource.min.js"></script>
+</head>
+<body>
+    <!--Vue 要实现异步加载需要使用到 vue-resource 库。-->
+    <div id="app">
+        <button @click="get()">点我异步获取数据(Get)</button>
+    </div>
+    <script>
+        new Vue({
+            el: "#app",
+            methods: {
+                get: function () {
+                    //发送get请求
+                    this.$http.get("data.txt","json").then(function (res) {
+                        document.write(JSON.parse(res.body));
+                    }, function () {
+                        alert("请求失败处理");
+                    });
+                }
+            }
+        })
+    </script>
+</body>
+</html>

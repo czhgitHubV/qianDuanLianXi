@@ -1,0 +1,37 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>组件1</title>
+    <script src="vue.min.js"></script>
+</head>
+<body>
+    <div id="app">
+        <input type="text" v-model="parentMsg" />
+        <czh v-bind:msg="parentMsg"></czh>
+        <czm></czm>
+    </div>
+    <script>
+        //Vue.component('czh', {
+        //    template: "<h1>czh自定义组件!</h1>"
+        //});
+        Vue.component('czh', {
+            props:["msg"],
+            template: "<h1>{{msg}}</h1>"
+        });
+        var Child = {
+            template: "<h1>czm自定义组件!</h1>"
+        };
+        var vm = new Vue({
+            el: "#app",
+            data: {
+                parentMsg: "父组件内容"
+            },
+            components: {
+                "czm": Child
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>TestPopup</title>
+    <style>
+        html, body {
+            width: 100%;
+            height: 100%;
+            margin: 0;
+        }
+
+    </style>
+    <link type="text/css" rel="stylesheet" href="custom-popup/custom.popup-v1.2.css">
+    <script src="http://www.jq22.com/jquery/jquery-1.10.2.js"></script>
+    <script src="custom-popup/jquery.custom.popup-v1.2.js"></script>
+
+    <script>
+
+        //注意：以下只是为了演示才这样写，
+        // 自己使用的时候请使用一个对象就行，每次 $.initPopup() 便创建了一个对象
+        //比如：var myPopup = $.initPopup(); //配置好自己需要的弹框对象
+        //  myPopup.showPopup("xxx","title"); //这样调用才是正确的
+        //  myPopup.addButton("功能",function(obj){}); //这样才是一直使用同一个对象
+        //最后 showPopup25 到 showPopup28这几个实例才是正确的使用方式
+
+
+        function showPopup1() {
+            $.initPopup().showPopup("可以使用键盘的Esc按键关闭弹框");
+        }
+
+        function showPopup2() {
+            $.initPopup().addButton("确定", function () {
+                alert("点击了确定");
+            }).showPopup("一个按键");
+        }
+
+        function showPopup3() {
+            $.initPopup({shadowSize: 20}).addButton("确定", function () {
+                alert("点击了确定");
+            }).addButton("取消").showPopup("两个按键");
+        }
+
+        function showPopup4() {
+            $.initPopup().addButton("确定", function () {
+                alert("点击了确定");
+            }).addButton("跳转", function () {
+                window.open("http://www.baidu.com")
+            }).addButton("取消").showPopup("三个按键");
+        }
+
+        function showPopup5() {
+            $.initPopup().addButton("确定", function () {
+                alert("点击了确定");
+            }).addButton("跳转", function () {
+                window.open("http://www.baidu.com");
+            }).addButton("干啥", function () {
+                alert("自定义，想干啥就干啥");
+            }).addButton("取消").showPopup("四个按键");
+        }
+
+        function showPopup6(width) {
+            $.initPopup({width: width}).addButton("确定", function () {
+                alert("点击了确定");
+            }).addButton("跳转", function () {
+                window.open("http://www.baidu.com");
+            }).addButton("干啥", function () {
+                alert("自定义，想干啥就干啥");
+            }).addButton("调大", function () {
+                this.closePopup();
+                showPopup6(400);
+            }).addButton("取消").showPopup("按键添加是不限制的，想添加多少就多少，但是要保证不要挤出框外去，所以添加按键多时也要把框调大");
+        }
+
+        function showPopup7() {
+            $.initPopup({borderRadius: 0})
+                .addButton("确定", function () {
+                    alert("点击了确定");
+                }).addButton("取消").showPopup("没错，边框的圆角肯定也要能够设置");
+        }
+
+        function showPopup8() {
+            var color = $("#colors").find("option:selected").val();
+            $.initPopup({themeColor: color})
+                .addButton("确定", function () {
+                    alert("点击了确定");
+                }).addButton("取消").showPopup("主题颜色也是可以自定义的，可以任意颜色，没错，默认颜色是 蓝色");
+        }
+
+        function showPopup9() {
+            $.initPopup({isShowBg: true})
+                .addButton("确定", function () {
+                    alert("点击了确定");
+                }).addButton("取消").showPopup("有时候我们希望弹框弹出时，用户不能再点击操作其他部分，让他注意力全集中到弹框上");
+        }
+
+        function showPopup10() {
+            $.initPopup({isShowIcon: false})
+                .addButton("确定", function () {
+                    alert("点击了确定");
+                }).addButton("取消").showPopup("右上角图标有时候我们不希望它显示");
+        }
+
+        function showPopup11() {
+            $.initPopup({icon: "data:image/png;base64,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"})
+                .addButton("确定", function () {
+                    alert("点击了确定");
+                }).addButton("取消").showPopup("因为不知道会用到什么图标，所有让大家自定义，我就没在插件里预设");
+        }
+
+        function showPopup12() {
+            $.initPopup({buttonAlign: "left"})
+                .addButton("确定", function () {
+                    alert("点击了确定");
+                }).addButton("取消").showPopup("按键的对齐方式默认为右对齐");
+        }
+
+        function showPopup13() {
+            $.initPopup({buttonAlign: "center"})
+                .addButton("确定", function () {
+                    alert("点击了确定");
+                }).addButton("取消").showPopup("按键的对齐方式默认为右对齐");
+        }
+
+        function showPopup14() {
+            $.initPopup({buttonAlign: "right"})
+                .addButton("确定", function () {
+                    alert("点击了确定");
+                }).addButton("取消").showPopup("按键的对齐方式默认为右对齐");
+        }
+
+        var mypop15;
+
+        function showPopup15() {
+            if (!mypop15) {
+                mypop15 = $.initPopup({allowedMove: true})
+                    .addButton("确定", function () {
+                        alert("点击了确定");
+                    }).addButton("取消");
+            }
+            mypop15.showPopup("弹框添加可以拖动，虽然这个功能作用不大，但作者我还是想加上去");
+        }
+
+        function showPopup16() {
+            var k_g = $("#size").find("option:selected").val().split("&");
+            $.initPopup({width: k_g[0], height: k_g[1]})
+                .addButton("确定", function () {
+                    alert("点击了确定");
+                }).addButton("取消").showPopup("框高自定义：" + k_g[0] + "*" + k_g[1]);
+        }
+
+        function showPopup17() {
+            $.initPopup({
+                targetSelector: "#btn16",
+                centerOrFollow: "follow",
+                followPosition: "top"
+            }).addButton("确定", function () {
+                alert("点击了确定");
+            }).addButton("取消").showPopup("有时候我们希望弹框弹出的位置不是在中间，而是出现在我们指定的某个节点附近，同时弹框和指定节点的距离也是可以设置的");
+        }
+
+        function showPopup18() {
+            $.initPopup({
+                targetSelector: "#btn17",
+                centerOrFollow: "follow",
+                followPosition: "top right"
+            }).addButton("确定", function () {
+                alert("点击了确定");
+            }).addButton("取消").showPopup("有时候我们希望弹框弹出的位置不是在中间，而是出现在我们指定的某个节点附近，同时弹框和指定节点的距离也是可以设置的");
+        }
+
+        function showPopup19() {
+            $.initPopup({
+                targetSelector: "#btn18",
+                centerOrFollow: "follow",
+                followPosition: "right"
+            }).addButton("确定", function () {
+                alert("点击了确定");
+            }).addButton("取消").showPopup("有时候我们希望弹框弹出的位置不是在中间，而是出现在我们指定的某个节点附近，同时弹框和指定节点的距离也是可以设置的");
+        }
+
+        function showPopup20() {
+            $.initPopup({
+                targetSelector: "#btn19",
+                centerOrFollow: "follow",
+                followPosition: "right bottom"
+            }).addButton("确定", function () {
+                alert("点击了确定");
+            }).addButton("取消").showPopup("有时候我们希望弹框弹出的位置不是在中间，而是出现在我们指定的某个节点附近，同时弹框和指定节点的距离也是可以设置的");
+        }
+
+        function showPopup21() {
+            $.initPopup({
+                targetSelector: "#btn20",
+                centerOrFollow: "follow",
+                followPosition: "bottom"
+            }).addButton("确定", function () {
+                alert("点击了确定");
+            }).addButton("取消").showPopup("有时候我们希望弹框弹出的位置不是在中间，而是出现在我们指定的某个节点附近，同时弹框和指定节点的距离也是可以设置的");
+        }
+
+        function showPopup22() {
+            $.initPopup({
+                targetSelector: "#btn21",
+                centerOrFollow: "follow",
+                followPosition: "bottom left"
+            }).addButton("确定", function () {
+                alert("点击了确定");
+            }).addButton("取消").showPopup("有时候我们希望弹框弹出的位置不是在中间，而是出现在我们指定的某个节点附近，同时弹框和指定节点的距离也是可以设置的");
+        }
+
+        function showPopup23() {
+            $.initPopup({
+                targetSelector: "#btn22",
+                centerOrFollow: "follow",
+                followPosition: "left"
+            }).addButton("确定", function () {
+                alert("点击了确定");
+            }).addButton("取消").showPopup("有时候我们希望弹框弹出的位置不是在中间，而是出现在我们指定的某个节点附近，同时弹框和指定节点的距离也是可以设置的");
+        }
+
+        function showPopup24() {
+            $.initPopup({
+                targetSelector: "#btn23",
+                centerOrFollow: "follow",
+                followPosition: "left top"
+            }).addButton("确定", function () {
+                alert("点击了确定");
+            }).addButton("取消").showPopup("有时候我们希望弹框弹出的位置不是在中间，而是出现在我们指定的某个节点附近，同时弹框和指定节点的距离也是可以设置的");
+        }
+
+
+        var mypop25, mypop26, mypop27, mypop28;
+
+        function showPopup25() {
+            mypop25.showPopup();
+        }
+
+        function showPopup26() {
+            mypop26.showPopup("#content");
+        }
+
+        function showPopup27() {
+            mypop27.showPopup();
+        }
+
+        function showPopup28() {
+            mypop28.showPopup("放大全屏功能是一位热心网友建议，感谢这位网友！");
+        }
+
+        $(function () {
+            // ------------------------------------------------------
+            if (!mypop25) {
+                mypop25 = $.initPopup({
+                    content: ".content"
+                }).addButton("确定", function () {
+                    alert("点击了确定");
+                }).addButton("取消");
+                /*
+                错误用法：
+                     mypop25 = $.initPopup({
+                         content: ".content"
+                     }).addButton("确定", function () {
+                         alert("点击了确定");
+                     }).addButton("取消").showPopup();
+                 在这里的showPopup()是没有返回值的，也就是mypop25将会为undefined
+                 */
+            }
+            // ------------------------------------------------------
+            if (!mypop26) {
+                mypop26 = $.initPopup({
+                    content: "#content"
+                }).addButton("确定", function () {
+                    alert("点击了确定");
+                }).addButton("取消");
+            }
+            // ------------------------------------------------------
+            if (!mypop27) {
+                mypop27 = $.initPopup({
+                    content: "<span style='font-size: 18px;'>内容可以是节点，一般我用于设置字体大小；弹框内容部分是强制水平和垂直居中的，所以添加任何东西都可以</span>"
+                }).addButton("确定", function () {
+                    alert("点击了确定");
+                }).addButton("取消");
+            }
+            // ------------------------------------------------------
+            if (!mypop28) {
+                mypop28 = $.initPopup({allowedFullscreen: true}).addButton("确定", function () {
+                    alert("点击了确定");
+                }).addButton("取消");
+            }
+        });
+    </script>
+</head>
+<body>
+
+<table style="width: 100%;height: 70%;text-align: center">
+    <tbody>
+    <tr>
+        <td><input type="button" id="btn1" value="默认" onclick="showPopup1();"></td>
+        <td><input type="button" id="btn2" value="一个按键" onclick="showPopup2();"></td>
+        <td><input type="button" id="btn3" value="两个按键" onclick="showPopup3();"></td>
+        <td><input type="button" id="btn4" value="三个按键" onclick="showPopup4();"></td>
+        <td><input type="button" id="btn5" value="四个按键" onclick="showPopup5();"></td>
+        <td><input type="button" id="btn6" value="五个按键" onclick="showPopup6();"></td>
+        <td><input type="button" id="btn7" value="直角" onclick="showPopup7();"></td>
+        <td>
+            <select id="colors">
+                <option value="red">红色</option>
+                <option value="orange">橙色</option>
+                <option value="yellow">黄色</option>
+                <option value="green">绿色</option>
+                <option value="blue">蓝色</option>
+                <option value="purple">紫色</option>
+            </select>
+            <input type="button" id="btn8" value="颜色主题" onclick="showPopup8();">
+        </td>
+    </tr>
+    <tr>
+        <td><input type="button" id="btn9" value="模糊背景" onclick="showPopup9();"></td>
+        <td><input type="button" id="btn10" value="隐藏图标" onclick="showPopup10();"></td>
+        <td><input type="button" id="btn11" value="更换图标" onclick="showPopup11();"></td>
+        <td><input type="button" id="btn12" value="按键左对齐" onclick="showPopup12();"></td>
+        <td><input type="button" id="btn13" value="按键中对齐" onclick="showPopup13();"></td>
+        <td><input type="button" id="btn14" value="按键右对齐" onclick="showPopup14();"></td>
+        <td><input type="button" id="btn15" value="可以拖动" onclick="showPopup15();"></td>
+        <td>
+            <select id="size">
+                <option value="300&200">300*200</option>
+                <option value="400&300">400*300</option>
+                <option value="500&400">500*400</option>
+                <option value="600&350">600*350</option>
+                <option value="500&250">500*250</option>
+            </select>
+            <input type="button" id="btn34" value="宽高" onclick="showPopup16();">
+        </td>
+    </tr>
+    <tr>
+        <td><input type="button" id="btn16" value="在我上方" onclick="showPopup17();"></td>
+        <td><input type="button" id="btn17" value="在我右上" onclick="showPopup18();"></td>
+        <td><input type="button" id="btn18" value="在我右方" onclick="showPopup19();"></td>
+        <td><input type="button" id="btn19" value="在我右下" onclick="showPopup20();"></td>
+        <td><input type="button" id="btn20" value="在我下方" onclick="showPopup21();"></td>
+        <td><input type="button" id="btn21" value="在我左下" onclick="showPopup22();"></td>
+        <td><input type="button" id="btn22" value="在我左方" onclick="showPopup23();"></td>
+        <td><input type="button" id="btn23" value="在我左上" onclick="showPopup24();"></td>
+    </tr>
+    <tr>
+        <td colspan="2"><input type="button" id="btn24" value="使用节点作内容1" onclick="showPopup25();"></td>
+        <td colspan="2"><input type="button" id="btn25" value="使用节点作内容2" onclick="showPopup26();"></td>
+        <td colspan="2"><input type="button" id="btn26" value="使用节点作内容3" onclick="showPopup27();"></td>
+        <td><input type="button" id="btn27" value="放大全屏" onclick="showPopup28();"></td>
+    </tr>
+    </tbody>
+</table>
+
+<div class="content" style="border: 1px solid black;">
+    我的选择器是 类：content
+    <table>
+        <thead>
+        <tr>
+            <th>标题</th>
+            <th>标题</th>
+            <th>标题</th>
+            <th>标题</th>
+            <th>标题</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>内容</td>
+            <td>内容</td>
+            <td>内容</td>
+            <td>内容</td>
+            <td>内容</td>
+        </tr>
+        <tr>
+            <td>内容</td>
+            <td>内容</td>
+            <td>内容</td>
+            <td>内容</td>
+            <td>内容</td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+<div id="content" style="border: 1px solid black;">
+    我的选择器是 ID：content
+    <h1>没错内容是可以自定义样式的，只是弹框把这部分节点嵌到弹框里而已</h1>
+</div>
+</body>
+</html>

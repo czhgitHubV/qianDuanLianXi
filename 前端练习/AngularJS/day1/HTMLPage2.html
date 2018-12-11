@@ -1,0 +1,45 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>AngularJS 表达式</title>
+    <script src="angular.min.js" type="text/javascript"></script>
+
+</head>
+<body ng-app="">
+    <div>
+        <p>我的第一个表达式: {{ 5 + 5 }}</p>
+    </div>
+    <div ng-init="quantity=1;const=5">
+        <p>总价：{{quantity*const}}</p>
+    </div>
+    <!-- {{quantity*const}}相当于：<span ng-bind="quantity*const"></span> -->
+    <div ng-init="quantity=1;const=5">
+        <p>总价：<span ng-bind="quantity*const"></span></p>
+    </div>
+    <div ng-init="fname='chen';lname='zhihua'">
+        <p>姓名：{{fname+" "+lname}}</p>
+    </div>
+    <div ng-init="fname='chen';lname='zhihua'">
+        <p>姓名：<span ng-bind="fname+' '+lname"></span></p>
+    </div>
+
+    <!-- AngularJS 对象 -->
+    <div ng-init="person={fname:'chen',lname:'zhihua'}">
+        <p>姓为：{{person.fname}}</p>
+    </div>
+    <div ng-init="person={fname:'chen',lname:'zhihua'}">
+        <p>姓为：<span ng-bind="person.lname"></span></p>
+    </div>
+
+    <!-- AngularJS 数组 -->
+    <div ng-init="arr=[1,15,19,2,40]">
+        <p>第三个值为：{{arr[2]}}</p>
+    </div>
+    <div ng-init="arr=[1,15,19,2,40]">
+        <p>第三个值为：<span ng-bind="arr[3]"></span></p>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,53 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <link href="jquery-ui.min.css" rel="stylesheet" />
+    <script src="jquery.min.js"></script>
+    <script src="jquery-ui.min.js"></script>
+    <style>
+        .ui-progressbar{
+            position:relative;
+        }
+        div #jiaz{
+            position:absolute;
+            left:50%;
+            top:4px;
+            text-shadow: 1px 1px 0 #fff;
+        }
+    </style>
+    <script>
+        $(function () {
+            var progressbar = $("#progressbar"), jiaz = $("#jiaz");
+            progressbar.progressbar({
+                value: false,
+                change: function () {
+                    jiaz.text(progressbar.progressbar("value") + "%");
+                },
+                complete: function () {
+                    jiaz.text("完成！");
+                }
+            });
+            function progress() {
+                var val = progressbar.progressbar("value") || 0;
+
+                progressbar.progressbar("value", val + 1);
+
+                if (val < 99) {
+                    setTimeout(progress, 100);
+                }
+            }
+
+            setTimeout(progress, 3000);
+        });
+    </script>
+</head>
+<body>
+    <div id="progressbar" style="width:50%;"><div id="jiaz">加载...</div></div>
+    <script>
+        $("#progressbar").progressbar({value:10});
+    </script>
+</body>
+</html>

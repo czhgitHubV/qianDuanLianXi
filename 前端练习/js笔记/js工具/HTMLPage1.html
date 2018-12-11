@@ -1,0 +1,59 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <link href="./JavaScripts/bootstrap-table.css" rel="stylesheet" />
+    <script src="./JavaScripts/jquery-1.12.4.min.js"></script>
+    <script src="./JavaScripts/bootstrap-table.js"></script>
+    <script src="./JavaScripts/PopSelect.js"></script>
+    <script>
+        function fun() {
+            var e=$("#shuju");
+            initPopselect(e);
+        }
+        function initPopselect(e) {
+            console.log(e);
+            e.PopSelect({
+                ajaxsrc: "http://localhost:56176/Portal/Ajax/BusinessHandler.ashx/GetItemRollList?WorkOrder=205900.02.101",
+                Columns: [
+                { checkbox: true, width: "40px"},
+                { field: 'BASEQN', title: '工单号', sortable: true, width: "80px" },
+                { field: 'BAROLID', title: '卷号', sortable: true, width: "20px" },
+                { field: 'BAROLTH', title: '卷长', width: "50px", align: "right" },
+                { field: 'BAUNIT', title: '单位', width: "30px" },
+                ],
+                Multiple: true,
+                DisplayLink: true,
+                AutoRefresh: true,
+                DisplaySearch: false,
+                PopupWidth: "900px",
+                PopupHeight: "600px",
+                ToolBar: "<div class='form-inline'><div class='form-group'><input name='WorkOrder' class='form-control' type='text' isclear='false' autofocus='autofocus' placeholder='工单号'></div>" +
+                     "<a herf='void(0);' class='btn btn-default btn_search'>查找</a></div>",
+                CheckedParams: function () {
+                    var wo = $("#shuju").val();
+                    this.setParamer({ WorkOrder: wo });
+                    return true;
+                },
+                CallBack: function (data) {
+                    if (data != null) {
+                        console.log("----------");
+                        console.log(e);
+                        console.log("----------");
+                        return true;
+                    }
+                }
+            })
+        }
+    </script>
+</head>
+<body>
+    <h1>弹窗获取数据</h1>
+    <input type="text" id="shuju" placeholder="获取数据" onclick="fun()"/>
+    <script>
+        //console.log($("#shuju"));
+    </script>
+</body>
+</html>

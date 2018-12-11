@@ -1,0 +1,62 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <link href="jquery-ui.min.css" rel="stylesheet" />
+    <script src="jquery.min.js"></script>
+    <script src="jquery-ui.min.js"></script>
+    <style>
+        a{
+            width:100px;
+        }
+    </style>
+</head>
+<body>
+    <div style="width:10%;">
+        <ul id="menuList" style="">
+            <li>
+                <a href="#">Item 1</a>
+                <ul>
+                    <li><a href="#">Item 1.1</a></li>
+                    <li>-</li>
+                    <li><a href="#">Item 1.2</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="#">Item 2</a>
+                <ul>
+                    <li><a href="#"><span class="ui-icon ui-icon-disk"></span>Item 2.1</a></li>
+                    <li class="ui-menu-icon">
+                        <a href="#">Item 2.2</a>
+                        <ul>
+                            <li><a href="#">Item 2.2.1</a></li>
+                            <li><a href="#">Item 2.2.2</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <a href="#">Item 3</a>
+                <ul>
+                    <li><a href="#">Item 3.1</a></li>
+                    <li></li>
+                    <li><a href="#">Item 3.2</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="#">Item 4</a>
+                <ul>
+                    <li><a href="#">Item 4.1</a></li>
+                    <li><a href="#">Item 4.2</a></li>
+                </ul>
+            </li>
+            <li><a href="#">Item 5</a></li>
+        </ul>
+    </div>
+    <script>
+        $("#menuList").menu();
+    </script>
+</body>
+</html>

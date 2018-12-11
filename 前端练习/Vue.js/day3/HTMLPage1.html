@@ -1,0 +1,86 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>组件3</title>
+    <script src="vue.min.js"></script>
+</head>
+<body>
+    <!--<div id="app">
+        <div id="counter-event-example">
+            <button-minus v-on:minus="incrementTotal('minus')"></button-minus>
+            <span>{{ total }}</span>
+            <button-add v-on:add="incrementTotal('add')"></button-add>
+        </div>
+    </div>
+    <script>
+        Vue.component("button-minus", {
+            template: '<button v-on:click="minusHandler">-</button>',
+            methods: {
+                minusHandler: function () {
+                    this.$emit("minus");
+                }
+            }
+        });
+        Vue.component("button-add", {
+            template: '<button v-on:click="addHandler">+</button>',
+            methods: {
+                addHandler: function () {
+                    this.$emit("add");
+                }
+            }
+        });
+        new Vue({
+            el: "#counter-event-example",
+            data: {
+                total: 0
+            },
+            methods: {
+                incrementTotal: function (val) {
+                    if(val=="add"){
+                        this.total += 1;
+                    }else if(val=="minus"){
+                        this.total -= 1;
+                    }
+                }
+            }
+        })
+    </script>-->
+    <div id="app">
+        <div id="counter-event-example">
+            <button-counter v-on:xxx="incrementTotal"></button-counter>+
+            <button-counter v-on:xxx="incrementTotal"></button-counter>=
+            <span>{{ total }}</span>
+        </div>
+    </div>
+
+    <script>
+        Vue.component('button-counter', {
+            template: '<button v-on:click="incrementHandler">{{ counter }}</button>',
+            data: function () {
+                return {
+                    counter: 0
+                }
+            },
+            methods: {
+                incrementHandler: function () {
+                    this.counter += 1
+                    this.$emit('xxx')// 触发xxx事件
+                }
+            },
+        });
+        new Vue({
+            el: '#counter-event-example',
+            data: {
+                total: 0
+            },
+            methods: {
+                incrementTotal: function () {
+                    this.total += 1
+                }
+            }
+        })
+    </script>
+</body>
+</html>

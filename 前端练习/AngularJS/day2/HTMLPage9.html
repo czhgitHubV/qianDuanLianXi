@@ -1,0 +1,86 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>Select(选择框)</title>
+    <script src="angular.min.js" type="text/javascript"></script>
+
+</head>
+<body ng-app="myApp">
+    <div ng-controller="selectCtrl">
+        <select ng-init="ss=names[0]" ng-model="ss" ng-options="x for x in names">
+        </select>
+        <select>
+            <option ng-repeat="x in names">{{x}}</option>
+        </select>
+    </div>
+
+    <!--ng-repeat 有局限性，选择的值是一个字符串:-->
+    <div ng-app="myApp" ng-controller="repeatCtrl">
+        <p>选择网站:</p>
+        <select ng-model="selectedSite">
+            <option ng-repeat="x in sites" value="{{x.url}}">{{x.site}}</option>
+        </select>
+        <h1>你选择的是: {{selectedSite}}</h1>
+    </div>
+
+    <!--使用 ng-options 指令，选择的值是一个对象：-->
+    <div ng-controller="optionsCtrl">
+        <p>选择网站:</p>
+        <select ng-model="selectedSite" ng-options="x.site for x in sites">
+        </select>
+        <h1>你选择的是: {{selectedSite.site}}</h1>
+        <p>网址为: {{selectedSite.url}}</p>
+    </div>
+
+    <!--使用对象作为数据源, x 为键(key), y 为值(value):-->
+    <div ng-controller="myCtrl2">
+        <p>选择的网站是:</p>
+        <select ng-model="selectedSite" ng-options="x for (x, y) in sites"></select>
+        <h1>你选择的值是: {{selectedSite}}</h1>
+    </div>
+
+    <!--选择的值在 key-value 对的 value 中, 这是它是一个对象:-->
+    <div ng-controller="myCtrl3">
+        <p>选择的网站是:</p>
+        <select ng-model="selectedSite" ng-options="x for (x, y) in cars"></select>
+        <h1>你选择的值是: {{selectedSite.brand }}</h1>
+        <h1>模型: {{selectedSite.model }}</h1>
+        <h1>颜色: {{selectedSite.color }}</h1>
+
+
+    </div>
+
+    <script>
+        var app = angular.module("myApp", []);
+        app.controller("selectCtrl", function ($scope) {
+            $scope.names = ["Google","Runoob","Taobao"];
+        });
+        app.controller("repeatCtrl", function ($scope) {
+            $scope.sites = [{ url: "http://www.google.com", site: "Google" },
+            { url: "http://www.runoob.com", site: "Runoob" },
+            { url: "http://www.Taobao.com", site: "Taobao" }];
+        });
+        app.controller("optionsCtrl", function ($scope) {
+            $scope.sites = [{ url: "http://www.google.com", site: "Google" },
+            { url: "http://www.runoob.com", site: "Runoob" },
+            { url: "http://www.taobao.com", site: "Taobao" }];
+        });
+        app.controller("myCtrl2", function ($scope) {
+            $scope.sites = {
+                site01: "Google",
+                site02: "Runoob",
+                site03: "Taobao"
+            };
+        });
+        app.controller("myCtrl3", function ($scope) {
+            $scope.cars = {
+                car01: { brand: "Ford", model: "Mustang", color: "red" },
+                car02: { brand: "Fiat", model: "500", color: "white" },
+                car03: { brand: "Volvo", model: "XC90", color: "black" }
+            };
+        });
+    </script>
+</body>
+</html>

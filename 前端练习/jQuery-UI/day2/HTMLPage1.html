@@ -1,0 +1,61 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <link href="jquery-ui.min.css" rel="stylesheet" />
+    <script src="jquery.min.js"></script>
+    <script src="jquery-ui.min.js"></script>
+    <style>
+        div div{
+            margin-left:20px;
+        }
+    </style>
+</head>
+<body>
+    <span class="ui-icon ui-icon-locked"></span>
+    <fieldset style="width:20%;">
+        <legend>最喜欢的 jQuery 项目</legend>
+        <div id="radio">
+            <input type="radio" id="r1" name="r" />
+            <label for="r1">R1</label>
+            <input type="radio" id="r2" name="r" />
+            <label for="r2">R2</label>
+            <input type="radio" id="r3" name="r" />
+            <label for="r3">R3</label>
+        </div>
+        <div>
+            <button type="button" id="b"/>
+            <label for="b" style="color:red;">$</label>
+        </div>
+    </fieldset>
+    <div id="accordion" style="width:20%;">
+        <h1>First</h1>
+        <div>11111111111111</div>
+        <h2>Second</h2>
+        <div>22222222222222</div>
+        <h2>Three</h2>
+        <div>33333333333333</div>
+    </div>
+    <div>
+        <input type="text" id="datepicker" placeholder="选择日期" />
+        <input type="date" />
+    </div>
+    <script>
+        $("#accordion").accordion();
+        $("#radio").buttonset();
+        $("#datepicker").datepicker({
+            dateFormat: "yy-mm-dd",
+            showButtonPanel: true,
+            showAnim: false,
+            changeMonth: true,
+            changeYear: true,
+            yearRange: "1970:2050",
+            numberOfMonths: 3,
+            showOn: "both",
+            buttonText: "日历按钮",
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,62 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>Custom DataGrid Pager</title>
+    <link rel="stylesheet" type="text/css" href="easyui/easyui.css">
+    <link rel="stylesheet" type="text/css" href="easyui/icon.css">
+    <link rel="stylesheet" type="text/css" href="easyui/demo.css">
+    <script type="text/javascript" src="easyui/jquery.min.js"></script>
+    <script type="text/javascript" src="easyui/jquery.easyui.min.js"></script>
+</head>
+<body>
+    <h2>Custom DataGrid Pager</h2>
+    <p>You can append some buttons to the standard datagrid pager bar.</p>
+    <div style="margin:20px 0;"></div>
+    <table id="dg" title="Custom DataGrid Pager" style="width:700px;height:460px;" class="easyui-datagrid"
+           url="easyui/data1.json"
+           toolbar="#toolbar"
+           method="get"
+           rownumbers="true" fitColumns="true" singleSelect="true" pagination="true">
+        <thead>
+            <tr>
+                <th field="itemid" width="80">Item ID</th>
+                <th field="productid" width="100">Product</th>
+                <th field="listprice" width="80" align="right">List Price</th>
+                <th field="unitcost" width="80" align="right">Unit Cost</th>
+                <th field="attr1" width="240">Attribute</th>
+                <th field="status" width="60" align="center">Status</th>
+            </tr>
+        </thead>
+    </table>
+    <div id="toolbar">
+        <a href="#" class="easyui-linkbutton" iconCls="icon-add" plain="true" onclick="newUser()">New User</a>
+        <a href="#" class="easyui-linkbutton" iconCls="icon-edit" plain="true" onclick="editUser()">Edit User</a>
+        <a href="#" class="easyui-linkbutton" iconCls="icon-remove" plain="true" onclick="destroyUser()">Remove User</a>
+    </div>
+    <script type="text/javascript">
+		$(function(){
+			var pager = $('#dg').datagrid().datagrid('getPager');	// get the pager of datagrid
+			pager.pagination({
+				buttons:[{
+					iconCls:'icon-search',
+					handler:function(){
+						alert('search');
+					}
+				},{
+					iconCls:'icon-add',
+					handler:function(){
+						alert('add');
+					}
+				},{
+					iconCls:'icon-edit',
+					handler:function(){
+						alert('edit');
+					}
+				}]
+			});
+		})
+    </script>
+</body>
+</html>

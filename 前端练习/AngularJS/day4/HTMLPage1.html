@@ -1,0 +1,42 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>api</title>
+    <script src="angular.min.js"></script>
+</head>
+<body ng-app="myApp">
+    <div ng-controller="myCtrl">
+        <p>根据switch来判断true/false让其显示是否是字符串和数字</p>
+        <input type="text" ng-model="myInput" ng-blur="blur()" />
+        <p>输入的内容为：{{myInput}}</p>
+        <p>变成小写：{{ x1 }}</p>
+        <p>变成大写：{{ x2 }}</p>
+        <p ng-switch="x3">
+            是不是字符串：
+            <label ng-switch-when="true">是</label>
+            <label ng-switch-when="false">不是</label>
+            <label ng-switch-when=""></label>
+        </p>
+        <p ng-switch="x4">
+            是不是数字：
+            <label ng-switch-when="true">是</label>
+            <label ng-switch-when="false">不是</label>
+            <label ng-switch-when=""></label>
+        </p>
+    </div>
+    <script>
+        var app = angular.module("myApp", []);
+        app.controller("myCtrl", function ($scope) {
+            $scope.blur = function () {
+                $scope.x1 = angular.lowercase($scope.myInput);
+                $scope.x2 = angular.uppercase($scope.myInput);
+                $scope.x3 = angular.isString($scope.myInput);
+                //$scope.x4 = angular.isNumber($scope.myInput);
+                $scope.x4 = !isNaN($scope.myInput);
+            }
+        });
+    </script>
+</body>
+</html>

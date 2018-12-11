@@ -1,0 +1,56 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <link href="jquery-ui.min.css" rel="stylesheet" />
+    <script src="jquery.min.js"></script>
+    <script src="jquery-ui.min.js"></script>
+    <style>
+        table{
+            border:1px solid gray;
+            border-collapse:collapse;
+        }
+        th,td{
+            border:1px solid gray;
+            text-align:center;
+        }
+        
+    </style>
+</head>
+<body>
+    <button id="open">打开对话框</button>
+    <div id="dialog" title="标题">
+        <h3 style="text-align:center;">我是对话框</h3>
+        <table style="width:100%;">
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Age</th>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td>aaa</td>
+                <td>23</td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>bbb</td>
+                <td>45</td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>ccc</td>
+                <td>12</td>
+            </tr>
+        </table>
+    </div>
+    <script>
+        $("#dialog").dialog({ autoOpen: false,dialogClass:"no-close" });
+        $("#open").click(function () {
+            $("#dialog").dialog("open");
+        })
+    </script>
+</body>
+</html>

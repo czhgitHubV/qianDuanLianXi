@@ -1,0 +1,26 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>监听属性1</title>
+    <script src="vue.min.js"></script>
+</head>
+<body>
+    <div id="app">
+        <p style="font-size:25px;">{{counter}}</p>
+        <button @click="counter++" style="font-size:25px;">点我</button>
+    </div>
+    <script>
+        var vm = new Vue({
+            el: '#app',
+            data: {
+                counter: 1
+            }
+        });
+        vm.$watch("counter", function (newVal,oldVal) {
+            alert("计算器值的变化：" + oldVal + "变为" + newVal);
+        });
+    </script>
+</body>
+</html>

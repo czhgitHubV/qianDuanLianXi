@@ -1,0 +1,44 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>表单1</title>
+    <script src="vue.min.js"></script>
+</head>
+<body>
+    <div id="app">
+        <p>全选：</p>
+        <input type="checkbox" id="selectAll" v-model="checked" @change="changeAllChecked()"/>
+        <label for="selectAll">{{checked}}</label>
+        <br />
+        <p>多个复选框：</p>
+        <input type="checkbox" id="runoob" value="r" v-model="checkedNames" />
+        <label for="runoob">Runoob</label>
+        <input type="checkbox" id="google" value="g" v-model="checkedNames" />
+        <label for="google">Google</label>
+        <input type="checkbox" id="taobao" value="t" v-model="checkedNames" />
+        <label for="taobao">Taobao</label>
+        <p>选中的值为：{{checkedNames}}</p>
+    </div>
+    <script>
+        var vm = new Vue({
+            el: '#app',
+            data: {
+                checked:false,
+                checkedNames: [],
+                checkedArr:["r","g","t"]
+            },
+            methods: {
+                changeAllChecked: function () {
+                    if (this.checked) {
+                        this.checkedNames = this.checkedArr;
+                    } else {
+                        this.checkedNames = [];
+                    }
+                }
+            }
+        })
+    </script>
+</body>
+</html>

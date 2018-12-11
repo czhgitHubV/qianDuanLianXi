@@ -1,0 +1,57 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>事件</title>
+    <script src="angular.min.js" type="text/javascript"></script>
+</head>
+<body ng-app="myApp">
+    <div ng-controller="myCtrl">
+        <button type="button" ng-click="count=count+1">点我加1</button>
+        <button type="button" ng-click="count=0">点我清零</button>
+        <p>{{count}}</p>
+    </div>
+
+    <!--隐藏 HTML 元素-->
+    <div ng-controller="personCtrl">
+        <button ng-click="toggle()">隐藏/显示</button>
+        <p ng-hide="myVar">
+            名: <input type="text" ng-model="firstName"><br>
+            姓: <input type="text" ng-model="lastName"><br>
+            Full Name: {{firstName + " " + lastName}}
+        </p>
+    </div>
+
+    <!--显示 HTML 元素-->
+    <div ng-controller="personCtrl2">
+        <button ng-click="toggle()">隐藏/显示</button>
+        <p ng-show="myVar2">
+            名: <input type=text ng-model="person.firstName"><br>
+            姓: <input type=text ng-model="person.lastName"><br>
+            姓名: {{person.firstName + " " + person.lastName}}
+        </p>
+    </div>
+
+    <script>
+        var app = angular.module("myApp", []);
+        app.controller("myCtrl", function ($scope) {
+            $scope.count = 0;
+        });
+        app.controller("personCtrl", function ($scope) {
+            $scope.firstName = "chen";
+            $scope.lastName = "zhihua";
+            $scope.toggle = function () {
+                $scope.myVar = !$scope.myVar;
+            };
+        });
+        app.controller("personCtrl2", function ($scope) {
+            $scope.person = { firstName: "chen", lastName: "zhihua" };
+            $scope.myVar2 = true;
+            $scope.toggle = function () {
+                $scope.myVar2 = !$scope.myVar2;
+            };
+        });
+    </script>
+</body>
+</html>

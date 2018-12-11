@@ -1,0 +1,32 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title> v-model双向绑定</title>
+    <script src="vue.min.js"></script>
+
+</head>
+<body>
+    <!--v-model 指令用来在 input、select、text、checkbox、radio 等
+    表单控件元素上创建双向数据绑定，根据表单上的值，自动更新绑定的元素的值。-->
+    <div id="app">
+        <p>{{message}}</p>
+        <input type="text" v-model="message" />
+        <button v-on:click="reverseMessage">反转字符串</button>
+    </div>
+    <script>
+        new Vue({
+            el: "#app",
+            data: {
+                message:"czh"
+            },
+            methods: {
+                reverseMessage: function () {
+                    this.message = this.message.split("").reverse().join("");
+                }
+            }
+        })
+    </script>
+</body>
+</html>

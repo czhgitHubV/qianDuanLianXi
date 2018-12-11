@@ -1,0 +1,24 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>自定义指令2</title>
+    <script src="vue.min.js"></script>
+
+</head>
+<body>
+    <div id="app">
+        <div v-czh="{color:'green',text:'菜鸟教程！'}"></div>
+    </div>
+    <script>
+        Vue.directive("czh", function (el,binding) {
+            el.innerHTML = binding.value.text;
+            el.style.backgroundColor = binding.value.color;
+        });
+        new Vue({
+            el: "#app",
+        })
+    </script>
+</body>
+</html>

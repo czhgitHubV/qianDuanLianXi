@@ -1,0 +1,31 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>插值：指令</title>
+    <script src="vue.min.js"></script>
+
+</head>
+<body>
+    <div id="app">
+        是否看见<input type="checkbox" v-model="seen" /><br />
+        是否ok<input type="checkbox" v-model="ok" />
+        <p v-if="seen">现在你看到我了</p>
+        <template v-if="ok">
+            <h1>菜鸟教程</h1>
+            <p>学的不仅是技术，更是梦想！</p>
+            <p>哈哈哈，打字辛苦啊！！！</p>
+        </template>
+    </div>
+    <script>
+        new Vue({
+            el: "#app",
+            data: {
+                seen: false,
+                ok:false
+            }
+        })
+    </script>
+</body>
+</html>

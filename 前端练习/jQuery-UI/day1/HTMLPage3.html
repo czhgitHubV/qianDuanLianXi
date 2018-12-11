@@ -1,0 +1,45 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>转移特效（Transfer Effect）演示</title>
+    <link href="jquery-ui.min.css" rel="stylesheet" />
+    <script src="jquery.min.js"></script>
+    <script src="jquery-ui.min.js"></script>
+    <style>
+        div.green {
+            width: 100px;
+            height: 80px;
+            background: green;
+            border: 1px solid black;
+            position: relative;
+        }
+        div.red {
+            margin-top: 10px;
+            width: 50px;
+            height: 30px;
+            background: red;
+            border: 1px solid black;
+            position: relative;
+        }
+        .ui-effects-transfer {
+            border: 1px dotted black;
+        }
+    </style>
+</head>
+<body>
+    <div class="green"></div>
+    <div class="red"></div>
+    <script>
+        $("div").click(function () {
+            console.log($("div").index(this));
+            var i = 1 - $("div").index(this);
+            $(this).effect("transfer", { to: $("div").eq(i) }, 1000, function () {
+                $(this).css({"right":"150px"});
+            });
+        });
+        document.getElementById
+    </script>
+</body>
+</html>

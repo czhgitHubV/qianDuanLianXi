@@ -1,0 +1,55 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>计算属性</title>
+    <script src="vue.min.js"></script>
+
+</head>
+<body>
+    <div id="app" style="color:red;">
+        <!--{{message.split("").reverse().join("")}}-->
+        <p>原始字符串: {{ message }}</p>
+        <p>计算后反转字符串:{{reversedMessage }}</p>
+        <p>计算后反转字符串:{{reversedMessage2() }}</p>
+        <p>{{site}}</p>
+    </div>
+    <script>
+        var vm=new Vue({
+            el: "#app",
+            data: {
+                message: "Runoob!",
+                name: 'Google',
+                url: 'http://www.google.com'
+            },
+            computed: {
+                reversedMessage: function () {
+                    //this指向 vm 实例
+                    return this.message.split("").reverse().join("");
+                },
+                site: {
+                    get: function () {
+                        return this.name + "：：：" + this.url;
+                    },
+                    set: function (value) {
+                        var names = value.split(" ");
+                        this.name = names[0];
+                        this.url = names[names.length - 1];
+                    }
+                }
+            },
+            methods: {
+                reversedMessage2: function () {
+                    //this指向 vm 实例
+                    return this.message.split("").reverse().join("");
+                }
+            }
+        })
+        vm.site = "菜鸟教程 http://www.runoob.com";
+        document.write("name：" + vm.name);
+        document.write("<br>");
+        document.write("url：" + vm.url);
+    </script>
+</body>
+</html>

@@ -1,0 +1,58 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>条件判断</title>
+    <script src="vue.min.js"></script>
+
+</head>
+<body>
+    <div id="app">
+        <p v-if="seen">现在你看到我了</p>
+        <template v-if="ok">
+            <h1>菜鸟教程</h1>
+            <p>学的不仅是技术，更是梦想！</p>
+            <p>哈哈哈，打字辛苦啊！！！</p>
+        </template>
+        <hr />
+        <div v-if="Math.random()>0.5">
+            大于0.5
+        </div>
+        <div v-else>
+            小于0.5
+        </div>
+        <hr />
+        <!--v-else-if 在 2.1.0 新增，顾名思义，用作 v-if 的 else-if 块。可以链式的多次使用：-->
+        <input type="radio" v-model="type" value="A" />A
+        <input type="radio" v-model="type" value="B" />B
+        <input type="radio" v-model="type" value="C" />C
+        <input type="radio" v-model="type" value="D" />D
+        <div v-if="type=='A'">
+            A
+        </div>
+        <div v-else-if="type=='B'">
+            B
+        </div>
+        <div v-else-if="type=='C'">
+            C
+        </div>
+        <div v-else>
+            Not A/B/C
+        </div>
+        <hr />
+        <h1 v-show="ok">Hello!</h1>
+
+    </div>
+    <script>
+        new Vue({
+            el: "#app",
+            data: {
+                seen: true,
+                ok: true,
+                type:'A'
+            }
+        })
+    </script>
+</body>
+</html>

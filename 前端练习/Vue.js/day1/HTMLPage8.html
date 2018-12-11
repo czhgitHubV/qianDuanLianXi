@@ -1,0 +1,30 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <script src="vue.min.js"></script>
+
+</head>
+<body>
+    <!--在这里 href 是参数，告知 v-bind 指令将该元素的 href 属性与表达式 url 的值绑定。-->
+    <div id="app">
+        <a v-bind:href="url">菜鸟教程</a><br />
+        <button v-on:click="doclick">点击</button>
+    </div>
+    <script>
+        new Vue({
+            el: '#app',
+            data: {
+                url:"http://www.baidu.com"
+            },
+            methods: {
+                doclick: function () {
+                    alert("hello");
+                }
+            }
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,34 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>拿json数据</title>
+    <script src="angular.min-1.7.0.js"></script>
+    <style>
+        table,td{
+            border:1px solid gray;
+            border-collapse:collapse;
+            padding:5px;
+        }
+    </style>
+</head>
+<body ng-app="myApp" ng-controller="myCtrl">
+    <table>
+        <tr ng-repeat="x in names">
+            <td>{{x.name}}</td>
+            <td>{{x.city}}</td>
+        </tr>
+    </table>
+    
+    <script>
+        var app = angular.module("myApp", []);
+        app.controller("myCtrl", function ($scope,$http) {
+            $http.get("jsonData.html").then(function (response) {
+                console.log(response);
+                $scope.names = response.data;
+            });
+        });
+    </script>
+</body>
+</html>
